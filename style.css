@@ -1,0 +1,662 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1d1d1d;
+}
+
+@keyframes opc {
+    to {}
+    from {
+        opacity: 30%;
+    }
+    
+}
+@keyframes opc2 {
+    to {}
+    from {
+        opacity: 30%;
+    }
+    
+}
+@keyframes opc3 {
+    to {}
+    from {
+        opacity: 30%;
+    }
+    
+}
+@keyframes opc4 {
+    to {}
+    from {
+        opacity: 30%;
+    }
+    
+}
+
+
+.container_navi {
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+@import url('https://fonts.cdnfonts.com/css/sansation-light');
+
+
+.header {
+    text-align: center;
+    color: white;
+    /* Adicionando cor ao texto */
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    transition: 1.5s;
+}
+
+.img_banner_comidas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #1d1d1d;
+ 
+  /* Para cobrir todo o espaço disponível */
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  /* Usando altura total da janela */
+  overflow: hidden;
+  object-fit: fill;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+.img_banner{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #1d1d1d;
+    background-image: url(assets/imagens/DSC06577.jpg);
+    /* Para cobrir todo o espaço disponível */
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.img_banner.img1 {
+
+    background-image: url(assets/imagens/3607.jpg);
+    opacity: 100%;
+    animation-name: opc;
+    animation-duration: 1.7s;
+    animation-direction: alternate;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+    
+   
+}
+.img_banner.img2 {
+
+    background-image: url(assets/imagens/3068.jpg);
+    opacity: 100%;
+    animation-name: opc2;
+    animation-duration: 1.7s;
+    animation-direction: alternate;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+   
+}
+.img_banner.img3 {
+
+    background-image: url(assets/imagens/3480.jpg);
+    opacity: 100%;
+    animation-name: opc3;
+    animation-duration: 1.7s;
+    animation-direction: alternate;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+   
+}
+.img_banner.img4 {
+
+    background-image: url(assets/imagens/3607.jpg);
+    opacity: 100%;
+    animation-name: opc4;
+    animation-duration: 1.7s;
+    animation-direction: alternate;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+   
+}
+.img_banner.img5 {
+
+    background-image: url(assets/imagens/3474.jpg);
+    opacity: 100%;
+    animation-name: opc;
+    animation-duration: 1.7s;
+    animation-direction: alternate;
+    width: 100vw;
+    height: 100vh;
+    /* Usando altura total da janela */
+    overflow: hidden;
+    object-fit: fill;
+   
+}
+
+
+
+
+.quicksand-font {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@import url('https://fonts.cdnfonts.com/css/kantumruy-pro');
+
+.navibar {
+
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    font-family: "Quicksand", sans-serif;
+}
+
+.navibar a {
+
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    font-family: "Quicksand", sans-serif;
+
+
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 100;
+}
+
+.navibar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+
+}
+
+.navibar a:hover::after {
+    width: 100%;
+
+}
+@import url('https://fonts.cdnfonts.com/css/radenes');
+.container h1 {
+    margin: 0;
+    font-family: 'Radenes', sans-serif;
+    font-size: 35px;
+    font-weight: 50;
+}
+
+.navibar hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navibar hover-underline-animation::after {
+
+    transform: scaleX(0);
+}
+
+.navibar hover-underline-animation:hover::after {
+    transform: scaleX(1);
+}
+
+.navibar hover-underline-animation:hover::after {
+
+    transform-origin: bottom left;
+}
+
+/* 
+
+
+tela sobre mim
+
+
+*/
+
+
+.sobre {
+
+    margin-top: -20px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1d1d1d;
+    font-family: 'Kantumruy Pro', sans-serif;
+    display: flex;
+    align-items: center;
+  
+}
+
+.about {
+
+  width: 40%;
+  display: flex;  
+  flex-direction: column;
+  justify-content: right;
+  margin: 50px;
+  color: #fff;
+}
+
+
+/* 
+
+
+tela comidas
+
+
+*/
+
+.sobre_mim {
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  font-family: 'Kantumruy Pro', sans-serif;
+  display: flex;
+  align-items: center;
+
+}
+
+
+
+
+/* 
+
+
+tela de cadastro
+
+
+*/
+
+
+
+.tela_cadastro2 {
+    display: flex;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  
+  }
+  
+  .boxAll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 500px;
+    border: solid 2px #fff;
+    color: rgb(255, 255, 255);
+    margin-top: 80px;
+    border-radius: 1px;
+    overflow: hidden;   
+    padding: 0;
+    background-color: #1d1d1d;
+    font-family: 'Kantumruy Pro', sans-serif;
+    margin: 0;
+  }
+  .boxAll h1 {
+    
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    font-family: 'Kantumruy Pro', sans-serif;
+  }
+  .tela_cadastro2 .boxInputs {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    margin-top: 0px;
+  }
+  
+  .boxInputs input {
+    background-color: #111111;
+    color: #fff;
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    margin-top: 5px;
+    height: 30px;
+  }
+  .boxInputs .input_isolada {
+    margin-top: 40px;
+  }
+  
+  .boxInputs .span {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 20px;
+    width: 80%;
+    text-align: start;
+  }
+  
+  /* estilização da mensagem de erro */
+  .boxInputs .msg_erro{
+    position: fixed;
+    z-index: 999;
+    width: 75%;
+    color: #ff1010;
+    opacity: 1;
+    font-size: 14px;
+    margin-top: 2px;
+    display: none;
+  }
+  
+  .boxInputs .span2 {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+  
+  .boxInputs ::placeholder {
+    color: rgba(145, 143, 143, 0.863);
+  }
+  
+  .boxInputs h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  
+  .inputs1 {
+    
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .boxAll .mensagem_cadastro {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: transform 0.25s ease;
+  }
+  
+  .boxAll .mensagem_cadastro:hover {
+    color: #fff;
+  }
+  
+
+    .input-container {
+        position: relative;
+        margin-top: 40px;
+        width: 250px;
+      }
+      
+      .input-container input[type="text"] {
+        font-size: 16px;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding: 5px 0;
+        background-color: transparent;
+        outline: none;
+        
+    font-family: 'Kantumruy Pro', sans-serif;
+      }
+      
+      .input-container .label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #ccc;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+      
+      .input-container input[type="text"]:focus ~ .label,
+      .input-container input[type="text"]:valid ~ .label {
+        top: -20px;
+        font-size: 16px;
+        color: #333;
+      }
+      
+      .input-container .underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: #333;
+        transform: scaleX(0);
+        transition: all 0.3s ease;
+      }
+      
+      .input-container input[type="text"]:focus ~ .underline,
+      .input-container input[type="text"]:valid ~ .underline {
+        transform: scaleX(1);
+      }
+      
+      
+
+
+      .cta {
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      
+      .cta span {
+        padding-bottom: 7px;
+        letter-spacing: 4px;
+        font-size: 14px;
+        padding-right: 15px;
+        text-transform: uppercase;
+      }
+      
+      .cta svg {
+        transform: translateX(-8px);
+        transition: all 0.3s ease;
+      }
+      
+      .cta:hover svg {
+        transform: translateX(0);
+      }
+      
+      .cta:active svg {
+        transform: scale(0.9);
+      }
+      
+      .hover-underline-animation {
+        position: relative;
+        color: #fff;
+        padding-bottom: 20px;
+      }
+      
+      .hover-underline-animation:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      
+      .cta:hover .hover-underline-animation:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      
+
+
+
+
+
+
+      
+
+
+
+      .container {
+        background-color: whitesmoke;
+        padding: 6px;
+        width: 350px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 0 darkgrey;
+      }
+
+
+      .form {
+        position: absolute;
+        margin-top: 80px;
+        transition: .5s;
+        width: 300px;
+        height: 400px;
+      }
+      
+      .buttonsForm {
+        margin-top: -400px;
+        position: relative;
+      }
+      
+      .buttonsForm button {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        position: relative;
+        padding: 10px 29px;
+      }
+      
+      .btnColor {
+        position: absolute;
+        width: 108px;
+        height: 100%;
+        background: linear-gradient(to right, #1d1d1d, #303030);
+        border-radius: 30px;
+        transition: .3s;
+        color: white;
+       
+      }
+      
+      button[type="submit"] {
+        background: #660fc8;
+        color: white;
+        border-radius: 30px;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 8px 0 8px 15px;
+        font-size: 15px;
+        margin-top: 40px;
+        cursor: pointer;
+      }
+      
+      .divCheck {
+        margin: 10px 0 0 5px;
+        width: 80%;
+        font-size: 13px;
+      }
+      
+      #signin {
+        left: 65px;
+      }
+      
+      #signup {
+        left: 480px;
+      }
+      
+      i {
+        position: absolute;
+        left: 0;
+        padding: 10px 10px;
+      }
+      
+      .iEmail {
+        top: 40px;
+      }
+      
+      .iPassword {
+        top: 114px;
+      }
+      
+      .iPassword2 {
+        top: 190px;
+      }
+
+
+      
+
+
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://kit.fontawesome.com/cf6fa412bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <div class="header">
+        <div class="container_navi">
+
+
+            <h1>além do sushi</h1>
+            <ul class="navibar">
+
+                <a href="./site.html">
+                    home</a>
+                <a href="./cadastro.html">
+                    about</a>
+                <a href="./site.html">
+                    comidas</a>
+                <a href="./site.html">
+                    dashboard</a>
+                <a href="./cadastro.html">
+                    login/cadastro</a>
+               
+            </ul>
+
+        </div>
+    </div>
+
+
+
+  <div class="container">
+    <div class="buttonsForm">
+      <div class="btnColor"></div>
+      <button id="btnSignin">Sign in</button>
+      <button id="btnSignup">Sign up</button>
+    </div>
+
+        <form id="signin">
+
+        <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Email</label>
+            <div class="underline"></div>
+        </div>
+
+       <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Senha</label>
+            <div class="underline"></div>
+        </div>
+    
+        <div class="botão_cadastrar">
+      <button class="cta">
+                <span class="hover-underline-animation"> Entrar </span>
+            </button>
+          </div>
+        </form>
+
+    <form id="signup">
+
+      <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Nome</label>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Email</label>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Senha</label>
+            <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Confirmar Senha</label>
+            <div class="underline"></div>
+        </div>
+        <div class="botão_cadastrar">
+          <button class="cta">
+                    <span class="hover-underline-animation"> Cadastrar </span>
+                </button>
+              </div>
+    </form>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+<!-- vw -->
+<script>
+
+var formSignin = document.querySelector('#signin')
+var formSignup = document.querySelector('#signup')
+var btnColor = document.querySelector('.btnColor')
+
+document.querySelector('#btnSignin')
+  .addEventListener('click', () => {
+    formSignin.style.left = "55px"
+    formSignup.style.left = "450px"
+    btnColor.style.left = "0px"
+})
+
+document.querySelector('#btnSignup')
+  .addEventListener('click', () => {
+    formSignin.style.left = "-460px"
+    formSignup.style.left = "25px"
+    btnColor.style.left = "110px"
+})
+
+</script>
