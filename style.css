@@ -267,7 +267,7 @@ h1 {
 /* 
 
 
-tela sobre mim
+tela sobre projeto
 
 
 */
@@ -295,17 +295,18 @@ tela sobre mim
   color: #fff;
 }
 
-
 /* 
 
 
-tela comidas
+tela sobre mim
 
 
 */
 
-.sobre_mim {
 
+.sobre2 {
+
+  margin-top: -20px;
   width: 100vw;
   height: 100vh;
   background-color: #fff;
@@ -315,6 +316,184 @@ tela comidas
 
 }
 
+.about2 {
+
+width: 40%;
+display: flex;  
+flex-direction: column;
+justify-content: right;
+margin: 50px;
+color: #fff;
+}
+
+
+
+/* 
+
+
+footer
+
+
+*/
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color: #1d1d1d;
+  color: white;
+  padding-bottom: 10px;
+  font-family: "Carme", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: #fff;
+  
+}
+
+.footer h6 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 550;
+  font-family: "Carme", sans-serif;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.footer_div1 {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.0;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 300;
+  font-family: "Carme", sans-serif;
+}
+
+.footer_div1 .column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  font-weight: 300;
+}
+
+.footer_div1 .column a {
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+
+
+.footer_div2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer_div1 li {
+  margin-top: 10px;
+  transition: transform 0.25s ease;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+
+}
+ 
+.footer_div1 li:hover {
+  color: #6e6e6e;
+  text-decoration: none;
+  transform: scale(1.07);
+}
+
+.icone {
+  width: fit-content;
+  height: fit-content;
+  flex-direction: row;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* footer contato*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* email*/
+.containerOne:hover {
+  background-color: #0061fc;
+  transition-duration: .3s;
+}
+/* github*/
+.containerTwo:hover {
+  background-color: #262626;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 20px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 
 
@@ -327,118 +506,6 @@ tela de cadastro
 */
 
 
-
-.tela_cadastro2 {
-    display: flex;
-    margin-top: 0px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  
-  }
-  
-  .boxAll {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    height: 500px;
-    border: solid 2px #fff;
-    color: rgb(255, 255, 255);
-    margin-top: 80px;
-    border-radius: 1px;
-    overflow: hidden;   
-    padding: 0;
-    background-color: #1d1d1d;
-    font-family: 'Kantumruy Pro', sans-serif;
-    margin: 0;
-  }
-  .boxAll h1 {
-    
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: -10px;
-    font-family: 'Kantumruy Pro', sans-serif;
-  }
-  .tela_cadastro2 .boxInputs {
-    display: flex;
-    flex-direction: row;
-    padding-left: 50px;
-    margin-top: 0px;
-  }
-  
-  .boxInputs input {
-    background-color: #111111;
-    color: #fff;
-    width: 70%;
-    border: none;
-    border-bottom: 1px solid rgb(255, 255, 255);
-    margin-top: 5px;
-    height: 30px;
-  }
-  .boxInputs .input_isolada {
-    margin-top: 40px;
-  }
-  
-  .boxInputs .span {
-    font-size: 14px;
-    font-weight: 700;
-    margin-top: 20px;
-    width: 80%;
-    text-align: start;
-  }
-  
-  /* estilização da mensagem de erro */
-  .boxInputs .msg_erro{
-    position: fixed;
-    z-index: 999;
-    width: 75%;
-    color: #ff1010;
-    opacity: 1;
-    font-size: 14px;
-    margin-top: 2px;
-    display: none;
-  }
-  
-  .boxInputs .span2 {
-    text-align: center;
-    font-size: 12px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-  }
-  
-  .boxInputs ::placeholder {
-    color: rgba(145, 143, 143, 0.863);
-  }
-  
-  .boxInputs h1 {
-    font-size: 30px;
-    margin-bottom: 15px;
-  }
-
-  
-  .inputs1 {
-    
-    display: flex;    
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  
-  .boxAll .mensagem_cadastro {
-    margin-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    font-size: 10px;
-    transition: transform 0.25s ease;
-  }
-  
-  .boxAll .mensagem_cadastro:hover {
-    color: #fff;
-  }
   
 
     .input-container {
@@ -546,15 +613,6 @@ tela de cadastro
       }
       
 
-
-
-
-
-
-      
-
-
-
       .container {
         background-color: whitesmoke;
         padding: 6px;
@@ -650,15 +708,15 @@ tela de cadastro
 
       
 /*
-Tela comidas */
+Tela comidas 
+
+*/
 
 .carme-regular {
   font-family: "Carme", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-
-
 
 .cards-container {
   
