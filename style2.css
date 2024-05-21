@@ -49,7 +49,6 @@ body,html {
 
 .container_navi {
   background-color: rgba(0, 0, 0, 0);
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,8 +76,8 @@ body,html {
 .navibar {
 
   display: flex;
-  justify-content: space-around;
-  width: 30%;
+  justify-content:space-between;
+  width: 40%;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -93,8 +92,14 @@ body,html {
 }
 
 h1 {
-font-family: "Quicksand", sans-serif;
-font-weight: 100;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 100;
+  color: white;
+}
+
+h1 a{
+  color: inherit;
+  text-decoration: none;
 }
 
 .navibar a::after {
@@ -185,6 +190,7 @@ form {
   position: relative;
   padding: 10px 29px;
   color: #fff;
+  font-family: "Quicksand", sans-serif;
 }
 
 .btnColor {
@@ -192,7 +198,8 @@ form {
   width: 108px;
   height: 100%;
   color: white;
-  background: linear-gradient(to bottom, #1d1d1d, #444444);
+  text-decoration: underline;
+  background: linear-gradient(to right, #313131, #3a3a3a);
   border-radius: 0px;
   transition: .3s;
 
@@ -259,7 +266,17 @@ i {
   margin: 60px auto;
   width: 250px;
   height: 30px;
-  
+  font-family: "Quicksand", sans-serif;
+}
+
+.input-container-signin{
+
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .input-container input[type="text"] {
@@ -309,7 +326,7 @@ i {
 
   display: flex;
   width: 100%;
-  margin-left: 140px;
+  margin-left: 150px;
 }
 
 .cta {
