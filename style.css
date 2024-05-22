@@ -914,9 +914,21 @@ Tela comidas
 
 }
 
-i#burguer {
-  background-color: black;
+.material-symbols-outlined {
+  color:white;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
 }
+
+.material-symbols-outlined:hover {
+  color:black;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
 
 menu {
   display: block;
