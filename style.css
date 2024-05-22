@@ -972,10 +972,13 @@ Tela comidas
 .sidebar {
 
   width: 25%;
-  height: 100%;
+  margin: 0;
+  height: 100vh;
   background-color: red;
+  flex-direction: column;
   display: flex;
   justify-content: center;
+  ;
 
 
 }
@@ -985,6 +988,7 @@ Tela comidas
   display: block;
   padding: 10px;
   cursor: pointer;
+  background-color: green;
 }
 
 .material-symbols-outlined:hover {

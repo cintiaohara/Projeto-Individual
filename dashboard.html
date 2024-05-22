@@ -45,20 +45,37 @@
 
 
    
-    <div class="sidebar">
-        <span class="material-symbols-outlined">
+   
+        <span class="material-symbols-outlined" onclick="clickMenu()">
             menu
             </span>
-
+            <menu id="itens">
+                <div class="sidebar">
 
         <li><a href="#"> LINK 1</li></a>
         <li><a href="#"> LINK 2</li></a>
         <li><a href="#"> LINK 3</li></a>
         <li><a href="#"> LINK 4</li></a>
-
-
     </div>
+    </menu>
 
     
 </body>
 </html>
+
+<script>
+
+    function clickMenu(){
+
+       if (itens.style.display == 'block'){
+
+        itens.style.display = 'none'
+       } else {
+
+        itens.style.display = 'block'
+
+       }
+
+    }
+
+</script>

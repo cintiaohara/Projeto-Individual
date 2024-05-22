@@ -302,54 +302,37 @@ const showPersonalities = (A, B, C, D) => {
   console.log(A,B,C,D)
   if (A > B && A > C && A > D) {
     //show image
-    document.getElementById("image").src = "img/introvert.png";
 
-    document.getElementById("trait-title").innerText = "Maioria A";
+    document.getElementById("image").src = "img/quiz1.png";
+
+
+    document.getElementById("trait-title").innerText = "Você combina com Kaarage, Missoshiro, Omuraisu, Tempurá e Udon";
 
     //append personality traits
-    let element = `<li>Being Around Lots of People Drains Your Energy</li>
-    <li>You Enjoy Solitude</li>
-    <li>You Have a Small Group of Close Friends</li>
-    <li>
-      People Often Describe You as Quiet and May Find It Difficult to
-      Get to Know You
-    </li>
-
-    <li>
-      Too Much Stimulation Leaves You Feeling Distracted and Unfocused
-    </li>
-    <li>You Are Very Self-Aware</li>
-    <li>You Like to Learn by Watching</li>
-    <li>You Are Drawn to Jobs That Involve Independence</li>`;
+    let element = `<li>    Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença.`;
     document.getElementById("personalities").innerHTML += element;
   } else if (B > A && B > C && B > D) {
     //show image
-    document.getElementById("image").src = "img/extrovert.png";
-    document.getElementById("trait-title").innerText = "Maioria B";
+    document.getElementById("image").src = "img/quiz2.png";
+    document.getElementById("trait-title").innerText = "Você combina com Gyoza, Donburi, Natto, Onigiri e Yakitori";
 
     //append personality traits
-    let element = `<li>You enjoy being at the center of attention.</li>
-    <li>You enjoy working with groups of people.</li>
-    <li>You feel isolated when you spend much time alone.</li>
-    <li>
-      You prefer to communicate by talking as opposed to other communication means.
-    </li>
-
-    <li>
-      You tend to act first before thinking
-    </li>
-    <li>You like to look to others and outside sources for ideas and inspiration.</li>
-    <li>You like to talk about your thoughs and feelings.</li>
-    <li>You have numerous, broad interests.</li>`;
+    let element = `Você é uma pessoa extremamente ativa e sempre em movimento. A monotonia não faz parte do seu vocabulário; você prospera em ambientes dinâmicos e desafiadores. Seja praticando esportes, participando de eventos ou simplesmente explorando novos lugares, você está sempre em busca de algo para fazer. Sua energia é contagiante, inspirando aqueles ao seu redor a se manterem ativos e envolvidos.`;
     document.getElementById("personalities").innerHTML += element;
     
   }  else if (C > A && C > B && C > D ) {
 
-    document.getElementById("trait-title").innerText = "Maioria C";
+    document.getElementById("image").src = "img/quiz3.png";
+    document.getElementById("trait-title").innerText = "Você combina com Chahan, Lamen, Oden, Sukiyaki e Yakisoba";
+    let element = `Você é uma pessoa casual e acolhedora, que se preocupa profundamente com relacionamentos genuínos. Adora sair com amigos e compartilhar momentos espontâneos e divertidos. Sua natureza social e empática faz com que você seja o coração dos seus círculos sociais, sempre pronto para criar memórias e apreciar a companhia daqueles que ama.`;
+    document.getElementById("personalities").innerHTML += element;
 
   } else if (D > A && D > B && D > C ) {
 
-    document.getElementById("trait-title").innerText = "Maioria D";
+    document.getElementById("image").src = "img/quiz4.png";
+    document.getElementById("trait-title").innerText = "Você combina com Chawanmushi, Kare, Okonomiyaki, Takoyaki e Tonkatsu";
+    let element = `Você é uma pessoa criativa e excêntrica, apaixonada por hobbies originais e música indie. Adora experimentar novos sabores e explorar a diversidade culinária. Sua autenticidade e curiosidade tornam sua jornada de descoberta tanto na arte quanto na gastronomia verdadeiramente inspiradora.`;
+    document.getElementById("personalities").innerHTML += element;
    }
 
   //show test result

@@ -48,22 +48,22 @@ const questions = [
   {
     id: 3,
     question:
-      "Qual dessas qualidades você valoriza mais em um amigo?",
+      "Você vai em um restaurante novo, o que costuma pedir?",
     answers: [
       {
-        text: "Paciência",
+        text: "Procuro algum item no cardápio que eu tenho certeza que irei gostar",
         cat: "A",
       },
       {
-        text: "Energia",
+        text: "Peço aquilo que parece ser mais saudável",
         cat: "B",
       },
       {
-        text: "Lealdade",
+        text: "Pergunto ao garçom qual o prato mais popular",
         cat: "C",
       },
       {
-        text: "Criatividade",
+        text: "Procuro por algo diferente que nunca tenha comido",
         cat: "D",
       },
     ],
@@ -73,15 +73,15 @@ const questions = [
     question: "Qual é o seu tipo de culinária favorito, além da japonesa?",
     answers: [
       {
-        text: "Tailandesa (leve e aromática)",
+        text: "Italiana (reconfortante e clássica)",
         cat: "A",
       },
       {
-        text: "Brasileira (variada e saborosa)",
+        text: "Brasileira (nutricional e familiar)",
         cat: "B",
       },
       {
-        text: "Italiana (reconfortante e clássica)",
+        text: "Chinesa (aromática e diversificada)",
         cat: "C",
       },
       {
@@ -164,7 +164,7 @@ const questions = [
       "Como você gosta de se vestir no dia a dia?",
     answers: [
       {
-        text: "Confortável e casual",
+        text: "Elegante e clássico",
         cat: "A",
       },
       {
@@ -172,11 +172,11 @@ const questions = [
         cat: "B",
       },
       {
-        text: "Elegante e clássico",
+        text: "Confortável e casual",
         cat: "C",
       },
       {
-        text: "Ecêntrico e original",
+        text: "Excêntrico e original",
         cat: "D",
       },
     ],
