@@ -144,6 +144,7 @@ h1 a{
     border: solid 2px white;
     border-radius: 2px;
     padding: 30px;
+    color: #ececec;
 }
 
 #question-count{
@@ -167,6 +168,7 @@ h1 a{
     padding: 10px;
     background-color: aliceblue;
     margin-right: 10px;
+    color: black;
 }
 
 .your-answers{
@@ -215,6 +217,7 @@ h1 a{
     background-color: aliceblue;
     padding: 20px;
     border-radius: 20px;
+    color:#1d1d1d;
 }
 
 #image{
