@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+
+body,html {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #1d1d1d;
+  background-image: url('assets/background.jpg');
+  object-fit: fill;
+  overflow: hidden;
+  margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  transition: 1.5s;
+  z-index: -1;
+}
+
+.img_banner{
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  background-color: #1d1d1d83;
+  background-image: url(assets/imagens/DSC06577.jpg);
+  object-fit: fill;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+ 
+ 
+}
+
+
+.container_navi {
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+@import url('https://fonts.cdnfonts.com/css/sansation-light');
+
+
+.header {
+  text-align: center;
+  color: white;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  margin-bottom:650px;
+
+}
+
+.navibar {
+
+  display: flex;
+  justify-content:space-between;
+  width: 40%;
+  font-family: "Quicksand", sans-serif;
+}
+
+.navibar a {
+
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  font-family: "Quicksand", sans-serif;
+
+
+}
+
+h1 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 100;
+  color: white;
+}
+
+h1 a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.navibar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+
+}
+
+.navibar a:hover::after {
+  width: 100%;
+
+}
+@import url('https://fonts.cdnfonts.com/css/radenes');
+.container h1 {
+  margin: 0;
+  font-family: 'Radenes', sans-serif;
+  font-size: 35px;
+  font-weight: 50;
+}
+
+.navibar hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.navibar hover-underline-animation::after {
+
+  transform: scaleX(0);
+}
+
+.navibar hover-underline-animation:hover::after {
+  transform: scaleX(1);
+}
+
+.navibar hover-underline-animation:hover::after {
+
+  transform-origin: bottom left;
+}
+
+/*
+Tela de cadastro
+*/
+
+.tela_login {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+}
+
+.container {
+  background-color: #1d1d1daa;
+  margin-top: 130px;
+  padding: 6px;
+  width: 360px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: solid 2px #fff;
+}
+
+form {
+  position: absolute;
+  margin-top: 80px;
+  transition: .5s;
+  width: 300px;
+  height: 400px;
+}
+
+.buttonsForm {
+  margin-top: 40px;
+  position: relative;
+}
+
+.buttonsForm button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  padding: 10px 29px;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+}
+
+.btnColor {
+  position: absolute;
+  width: 108px;
+  height: 100%;
+  color: white;
+  text-decoration: underline;
+  background: linear-gradient(to right, #313131b3, #3a3a3ab4);
+  border-radius: 0px;
+  transition: .3s;
+
+ 
+}
+
+input[type="text"], input[type="password"] {
+  border: none;
+  margin-top: 40px;
+  border-radius: 60px;
+  padding: 8px 0 8px 35px;
+  outline: none;
+  width: 100%;
+  height: 80%;
+}
+
+button[type="submit"] {
+  background: #1d1d1d;
+  color: white;
+  border-radius: 30px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0 8px 15px;
+  font-size: 15px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.divCheck {
+  margin: 10px 0 0 5px;
+  width: 80%;
+  font-size: 13px;
+}
+
+#signin {
+  left: 25px;
+}
+
+#signup {
+  left: 450px;
+}
+
+i {
+  position: absolute;
+  left: 0;
+  padding: 10px 10px;
+}
+
+.iEmail {
+  top: 40px;
+}
+
+.iPassword {
+  top: 114px;
+}
+
+.iPassword2 {
+  top: 190px;
+}
+
+.input-container {
+  position: relative;
+  align-items: center;
+  margin: 60px auto;
+  width: 280px;
+  height: 30px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.input-container-signin{
+
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-container input[type="text"] [type="password"]{
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  color: white;
+  background-color: #1d1d1db6;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-size: 15px;
+}
+
+.input-container input[type="text"][type="password"]:focus ~ .label,
+.input-container input[type="text"][type="password"]:valid ~ .label {
+  top: -14px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"][type="password"]:focus ~ .underline,
+.input-container input[type="text"][type="password"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.botão_cadastrar {
+
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: #fff;
+  padding-bottom: 10px;  
+  display: flex;
+  justify-content: center;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 85%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

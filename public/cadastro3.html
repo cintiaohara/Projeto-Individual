@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://kit.fontawesome.com/cf6fa412bd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="container_navi">
+      <h1><a href="C:\Users\Cintia\OneDrive\Documentos\SP Tech\PI\Projeto-Individual\site.html">MINUS SUSHI</a></h1>
+      <ul class="navibar">
+          <a href="./index.html">home</a>
+          <a id="site.html#sobre_projeto">projeto</a>
+          <a id="site.html#sobre_projeto">sobre mim</a>
+          <a href="./comidas.html">menu</a>
+          <a href="C:\Users\Cintia\OneDrive\Documentos\SP Tech\PI\web-data-viz\public\quiz_personalidade\index.html">quiz</a>
+          <a href="./dashboard.html">dashboard</a>
+          <a href="./cadastro.html">login/cadastro</a>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+
+  <div class="tela_login">
+  <div class="container">
+    <div class="buttonsForm">
+      <div class="btnColor"></div>
+      <button id="btnSignin">Entrar</button>
+      <button id="btnSignup">Cadastrar</button>
+    </div>
+
+    <form id="signin" onsubmit="entrar(event)">
+      <div class="input-container-signin">
+        <div class="input-container">
+          <input type="text" value="braian.hudson.braga@gmail.com" id="email_input_login" required="">
+          <label for="input" class="label">Email</label>
+          <div class="underline"></div>
+        </div>
+
+        <div class="input-container">
+          <input type="password" value="123456" id="senha_input_login" required="">
+          <label for="input" class="label">Senha</label>
+          <div class="underline"></div>
+        </div>
+
+        <div class="botão_cadastrar">
+          <button class="cta">
+            <span class="hover-underline-animation">Entrar</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <form id="signup">
+      <div class="input-container">
+        <input type="text" value="braian" id="nome_input" required="">
+        <label for="input" class="label">Nome</label>
+        <div class="underline"></div>
+      </div>
+
+      <div class="input-container">
+        <input type="text" value="braian.hudson.braga@gmail.com" id="email_input" required="">
+        <label for="input" class="label">Email</label>
+        <div class="underline"></div>
+      </div>
+
+      <div class="input-container">
+        <input type="password" value="123456" id="senha_input" required="">
+        <label for="input" class="label">Senha</label>
+        <div class="underline"></div>
+      </div>
+
+      <div class="input-container">
+        <input type="password" value="123456" id="confirmacao_senha_input" required="">
+        <label for="input" class="label">Confirmar Senha</label>
+        <div class="underline"></div>
+      </div>
+      <div class="botão_cadastrar">
+        <button class="cta">
+          <span class="hover-underline-animation" onclick="cadastrar()">Cadastrar</span>
+        </button>
+        <div style="display: none" id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        </div>
+        <div id="div_erro"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script>
+    var formSignin = document.querySelector('#signin');
+    var formSignup = document.querySelector('#signup');
+    var btnColor = document.querySelector('.btnColor');
+
+    document.querySelector('#btnSignin').addEventListener('click', () => {
+      formSignin.style.left = "25px";
+      formSignup.style.left = "450px";
+      btnColor.style.left = "0px";
+    });
+
+    document.querySelector('#btnSignup').addEventListener('click', () => {
+      formSignin.style.left = "-450px";
+      formSignup.style.left = "25px";
+      btnColor.style.left = "110px";
+    });
+
+    function entrar(event) {
+      event.preventDefault(); // Previne o comportamento padrão do formulário
+
+      console.log("opa to aqui no entrar");
+      var emailVar = email_input_login.value;
+      var senhaVar = senha_input_login.value;
+
+      if (emailVar == "" || senhaVar == "") {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        return false;
+      } else {
+        setInterval(sumirMensagem, 5000);
+      }
+
+      console.log("FORM LOGIN: ", emailVar);
+      console.log("FORM SENHA: ", senhaVar);
+
+      console.log("CAIU AQUI NO LOGIN");
+
+      fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+        })
+      }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log("CAIU AQUI", resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
+
+            // Redireciona para a página de dashboard após o login
+            window.location = "dashboard.html";
+            
+          });
+
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then(texto => {
+            console.error(texto);
+          });
+        }
+
+      }).catch(function (erro) {
+        console.log(erro);
+      });
+
+      return false;
+    }
+
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+
+    function cadastrar() {
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+      console.log("chegou aqui");
+
+      if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        cardErro.style.display = "block";
+        alert("Campos em branco");
+
+        return false;
+      } else {
+        setInterval(sumirMensagem, 5000);
+      }
+
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
