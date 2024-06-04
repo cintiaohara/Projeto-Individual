@@ -46,7 +46,6 @@ function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
-    // var cpf = req.body.cpfServer;
     var senha = req.body.senhaServer;
 
     // Faça as validações dos valores
@@ -85,6 +84,7 @@ function cadastrar(req, res) {
 function fezQuiz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo Site_Quiz.html
     var id = req.params.id;
+    
     console.log(id)
 
     // Faça as validações dos valores
@@ -111,9 +111,16 @@ function fezQuiz(req, res) {
     }
 }
 
+
+
 function fezQuest(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo Site_Quiz.html
     var id = req.params.id;
+    var q1 = req.body.q1Server;
+    var q2 = req.body.q2Server;
+    var q3 = req.body.q3Server;
+    var q4 = req.body.q4Server;
+    var fkQuestUsuario = req.body.idServer;
+
     console.log(id)
 
     // Faça as validações dos valores
@@ -122,7 +129,8 @@ function fezQuest(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.fezQuest(id)
+        console.log('teste');
+        usuarioModel.fezQuest(q1, q2, q3, q4, fkQuestUsuario, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -140,82 +148,54 @@ function fezQuest(req, res) {
     }
 }
 
+// function EnviarQuest(req, res) {
+//     var q1 = req.body.q1Server;
+//     var q2 = req.body.q2Server;
+//     var q3 = req.body.q3Server;
+//     var q4 = req.body.q4Server;
+//     var fkQuestUsuario = req.body.idServer;
+//     var fezQuest = req.body.fezQuestServer;
 
-function fazerQuest(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo Site_Quiz.html
-    var id = req.body.idServer;
-    var fezQuest = req.body.fezQuestServer;
+//     console.log("CHAMANDO ENVIAR");
 
-    // Faça as validações dos valores
-    if (id == undefined) {
-        res.status(400).send("Sem resposta de id!");
-    } else if (fezQuest == undefined) {
-        res.status(400).send("Sem resposta de questionario!");
-    } else {
+//     if (fkQuestUsuario == undefined) {
+//         res.status(400).send("Sem resposta de id!");
+//     } else if (fezQuest == undefined) {
+//         res.status(400).send("Sem resposta de questionario!");
+//     } else {
 
-       
-        usuarioModel.fazerQuest(id, fezQuest)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o Questionário! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
+//     if (q1 == undefined) {
+//         res.status(400).send("Sem resposta 1");
+//     } else if (q2 == undefined) {
+//         res.status(400).send("Sem resposta 2");
+//     } else if (q3 == undefined) {
+//         res.status(400).send("Sem resposta 3");
+//     } else if (q4 == undefined) {
+//         res.status(400).send("Sem resposta 4");
+//     } else {
 
-function EnviarQuest(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo Site_Quiz.html
-    var q1 = req.body.q1Server;
-    var q2 = req.body.q2Server;
-    var q3 = req.body.q3Server;
-    var q4 = req.body.q4Server;
-    var fkQuestUsuario = req.body.idServer;
-
-    // Faça as validações dos valores
-    if (q1 == undefined) {
-        res.status(400).send("Sem resposta1!");
-    } else if (q2 == undefined) {
-        res.status(400).send("Sem resposta2!");
-    } else if (q3 == undefined) {
-        res.status(400).send("Sem resposta3!");
-    } else if (q4 == undefined) {
-        res.status(400).send("Sem resposta4!");
-    } else {
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.EnviarQuest(q1, q2, q3, q4, fkQuestUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o Questionário! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
+//         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+//         usuarioModel.EnviarQuest(q1, q2, q3, q4, fkQuestUsuario, id)
+//             .then(
+//                 function (resultado) {
+//                     res.json(resultado);
+//                 }
+//             ).catch(
+//                 function (erro) {
+//                     console.log(erro);
+//                     console.log(
+//                         "\nHouve um erro ao realizar o Questionário! Erro: ",
+//                         erro.sqlMessage
+//                     );
+//                     res.status(500).json(erro.sqlMessage);
+//                 }
+//             );
+//     }
+// }}
 
 module.exports = {
     autenticar,
     cadastrar,
-    EnviarQuest,
-    EnviarQuiz,
-    fazerQuest,
     fezQuest,
     fezQuiz
 }

@@ -1,6 +1,4 @@
 var database = require("../database/config");
-var { fezQuest } = require("../controllers/usuarioController");
-var { fezQuiz } = require("../controllers/usuarioController");
 
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
@@ -25,34 +23,45 @@ function cadastrar(nome, email, senha) {
 }
 
 
-function EnviarQuest(q1, q2, q3, q4, fkQuestUsuario) {
-    console.log("Finalizando questionário para o usuário:", fkQuestUsuario);
-    var instrucaoSql = `
-        INSERT INTO questionario (questao1, questao2, questao3, questao4, fk_Pergunta_Usuario) VALUES ('${q1}', '${q2}', '${q3}', '${q4}', ${fkQuestUsuario});
+// function EnviarQuest(q1, q2, q3, q4, fkQuestUsuario, id) {
+//     console.log("Finalizando questionário para o usuário:", fkQuestUsuario, id);
+//     var instrucao1Sql = `
+//         INSERT INTO questionario (questao1, questao2, questao3, questao4, fk_Pergunta_Usuario) VALUES ('${q1}', '${q2}', '${q3}', '${q4}', ${fkQuestUsuario});
+//     `;
+
+//     var instrucao2Sql = `
+//     UPDATE usuario set fezQuest = true where id = ${id};
+// `;
+
+//     console.log("Executando a instrução SQL para finalizar o questionário: \n" + instrucao1Sql + instrucao2Sql);
+//      database.executar(instrucao1Sql);
+//     return database.executar(instrucao2Sql).catch(erro => {
+//         console.error("Erro ao cadastrar se o usuário fez o questionário ou não:", erro);
+//         throw erro;
+//     });
+// }
+
+
+function fezQuest(q1, q2, q3, q4, fkQuestUsuario, id) {
+    console.log("Finalizando questionário para o usuário:", fkQuestUsuario, id);
+    var instrucao1Sql = `
+        INSERT INTO questionario (questao1, questao2, questao3, questao4, fkQuestUsuario) VALUES ('${q1}', '${q2}', '${q3}', '${q4}', ${id});
     `;
 
-    console.log("Executando a instrução SQL para finalizar o questionário: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function fazerQuest(id) {
-    var instrucaoSql = `
-        UPDATE usuario set fezQuest = true where id = ${id};
-        
-    `;
-
-    return database.executar(instrucaoSql).catch(erro => {
-        console.error("Erro ao cadastrar se o usuário fez o questionário ou não:", erro);
-        throw erro;
-    });
-}
-
-function fezQuest(id) {
+    var instrucao2Sql = `
+    UPDATE usuario set fezQuest = true where id = ${id};
+`;
     var instrucaoSql = `
         SELECT fezQuest FROM usuario WHERE id = ${id};
     `;
 
-    return database.executar(instrucaoSql).then(resultado => {
+    console.log("Executando a instrução SQL para finalizar o questionário: \n" + instrucao1Sql + instrucao2Sql);
+     database.executar(instrucao1Sql);
+    database.executar(instrucao2Sql).catch(erro => {
+        console.error("Erro ao cadastrar se o usuário fez o questionário ou não:", erro);  
+    return database.executar(instrucaoSql)
+    
+});/* .then(resultado => {
         console.log(resultado)
         if (resultado.length > 0) {
             const questionarioFeito = resultado[0].fezQuest;
@@ -65,7 +74,7 @@ function fezQuest(id) {
     }).catch(erro => {
         console.error("Erro ao verificar se o usuário fez o questionário:", erro);
         throw erro;
-    });
+    }); */
 }
 
 function fezQuiz(id) {
@@ -92,8 +101,6 @@ function fezQuiz(id) {
 module.exports = {
     autenticar,
     cadastrar,
-    EnviarQuest,
-    fazerQuest,
     fezQuest,
     fezQuiz
 };

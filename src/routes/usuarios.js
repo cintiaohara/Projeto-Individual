@@ -12,9 +12,7 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.post("/EnviarQuest/:id", function (req, res) {
-    usuarioController.finalizar(req, res);
-});
+
 
 
 router.post('/fazerQuiz/:id/:fezQuiz', function (req, res) {
@@ -25,11 +23,14 @@ router.post('/fezQuiz/:id', function (req, res) {
     usuarioController.fezQuiz(req, res);
 });
 
-router.post('/fazerQuest/:id/:fezQuest', function (req, res) {
-    usuarioController.fazerQuest(req, res);
-});
 
-router.get('/fezQuest/:id', function (req, res) {
+
+
+// router.post('/EnviarQuest/:id/:fezQuest', function (req, res) {
+//     usuarioController.EnviarQuest(req, res);
+// });
+
+router.post('/FezQuest/:id', function (req, res) {
     usuarioController.fezQuest(req, res);
 });
 

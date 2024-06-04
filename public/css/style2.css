@@ -7,7 +7,7 @@ body,html {
   display: flex;
   justify-content: center;
   background-color: #1d1d1d;
-  background-image: url('assets/background.jpg');
+  background-image: url(../assets/background.jpg);
   object-fit: fill;
   overflow: hidden;
   margin: 0;
@@ -32,7 +32,7 @@ body,html {
   height: 100%;
   object-fit:cover;
   background-color: #1d1d1d83;
-  background-image: url(assets/imagens/DSC06577.jpg);
+  background-image: url(/public/assets/imagens/DSC06577.jpg);
   object-fit: fill;
   z-index: -1;
   width: 100vw;
@@ -157,7 +157,7 @@ Tela de cadastro
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
+ 
 }
 
 .container {

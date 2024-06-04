@@ -16,32 +16,36 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Carme&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
-    <script src="../public/js/loginfeito.js" defer></script>
-    <link rel="icon" href="../public/assets/favicon-32x32.png">
+  <script src="../public/js/loginfeito.js" defer></script>
+  <link rel="icon" href="../public/assets/favicon-32x32.png">
+  <script src="js/alerta.js"></script>
+  <link rel="icon" href="../public/assets/favicon-32x32.png">
 </head>
 
-<body>
+<body onload="validarSessao()">
 
   <div class="header">
     <div class="container_navi">
 
 
-      <h1><a href="C:\Users\Cintia\OneDrive\Documentos\SP Tech\PI\Projeto-Individual\site.html">MINUS SUSHI</a></h1>
+      <h1><a href="./index.html">MINUS SUSHI</a></h1>
       <ul class="navibar">
 
-        <a href="./site.html">
+        <a href="./index.html">
           home</a>
-        <a id="site.html#sobre_projeto">
+        <a href="#sobre_projeto">
           projeto</a>
-        <a id="site.html#sobre_projeto">
+        <a href="#sobre_mim">
           sobre mim</a>
         <a href="./comidas.html">
           menu</a>
-        <a href="C:\Users\Cintia\OneDrive\Documentos\SP Tech\PI\Projeto-Individual\quiz_personalidade\index.html">
+        <a id="quiz" href="./cadastro.html">
           quiz</a>
-        <a href="./site.html">
+        <a id="questionario" href="./cadastro.html">
+          questionário</a>
+        <a id="dashboard" href="./cadastro.html">
           dashboard</a>
-        <a href="./cadastro.html">
+        <a id="login" href="./cadastro.html">
           login/cadastro</a>
 
       </ul>
@@ -1628,7 +1632,7 @@
 
 
 
-      
+
       <!-- <button onclick="proximaPergunta()">enviar</button>
       
       <div class="botão_cadastrar">
@@ -1637,36 +1641,28 @@
         </button>
       </div> -->
 
-      
+
 
       <div id="fim">
 
         <h1>Obrigada!</h1>
         <a href="">Voltar para o site</a>
       </div>
-      
+
     </form>
-    <button id="botão_proxima" class="cta" onclick="proximaPergunta()">Próxima</button>
-    <button id="botão_enviar" class="cta" onclick="EnviarQuest()">Enviar</button>
+
+
+    <button class="cta" id="botão_proxima">
+      <span class="hover-underline-animation" onclick="proximaPergunta()">Próxima</span>
+    </button>
+    <!-- <button id="botão_proxima" class="cta" onclick="proximaPergunta()">Próxima</button> -->
+
+    <button class="cta" id="botão_enviar">
+      <span class="hover-underline-animation" onclick="FezQuest()">Enviar</span>
+    </button>
   </div>
 
 
-  <!-- exemplo -->
-  <div id="p1" style="display: block;">
-    perguntas
-  </div>
-  <div id="p2" style="display: none; color: white;">
-    pergunta
-  </div>
-  <div id="p3" style="display: none;color: white;">
-    pergunta
-  </div>
-  <div id="p4" style="display: none;color: white;">
-    pergunta
-  </div>
-  <div id="p5" style="display: none;color: white;">
-    pergunta
-  </div>
 
 
 
@@ -1676,45 +1672,41 @@
 
 
 <script>
-   var q1 = document.getElementById('q1');
-    var q2 = document.getElementById('q2');
-    var q3 = document.getElementById('q3');
-    var q4 = document.getElementById('q4');
-    var botão_proxima = document.getElementById('botão_proxima');
-    var botão_enviar = document.getElementById("botão_enviar");
+  var q1 = document.getElementById('q1');
+  var q2 = document.getElementById('q2');
+  var q3 = document.getElementById('q3');
+  var q4 = document.getElementById('q4');
+  var botão_proxima = document.getElementById('botão_proxima');
+  var botão_enviar = document.getElementById("botão_enviar");
 
   function proximaPergunta() {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // for a smooth scrolling effect
+      top: 0,
+      behavior: 'smooth' // for a smooth scrolling effect
     });
-   
- 
 
     if (q1.style.display !== "none") {
-                q1.style.display = "none";
-                q2.style.display = "block";
-                botão_proxima.style.display = "block"; 
-                botão_enviar.style.display = "none";   
-            } else if (q2.style.display !== "none") {
-                q2.style.display = "none";
-                q3.style.display = "block";
-                botão_proxima.style.display = "block"; 
-                botão_enviar.style.display = "none";   
-            } else if (q3.style.display !== "none") {
-                q3.style.display = "none";
-                q4.style.display = "block";
-                botão_proxima.style.display = "none";  
-                botão_enviar.style.display = "block";  
-            } else if (q4.style.display !== "none") {
-                q4.style.display = "none";
-                fim.style.display = "block";
-                botão_proxima.style.display = "none";  
-                botão_enviar.style.display = "block";  
-            }
+      q1.style.display = "none";
+      q2.style.display = "block";
+      botão_proxima.style.display = "block";
+      botão_enviar.style.display = "none";
+    } else if (q2.style.display !== "none") {
+      q2.style.display = "none";
+      q3.style.display = "block";
+      botão_proxima.style.display = "block";
+      botão_enviar.style.display = "none";
+    } else if (q3.style.display !== "none") {
+      q3.style.display = "none";
+      q4.style.display = "block";
+      botão_proxima.style.display = "none";
+      botão_enviar.style.display = "block";
+    } else if (q4.style.display !== "none") {
+      q4.style.display = "none";
+      fim.style.display = "block";
+      botão_proxima.style.display = "none";
+      botão_enviar.style.display = "block";
+    }
 
-
-       
     // else {
     //   fetch("/cadastrarQuiz", {
     //     body: {
@@ -1731,113 +1723,104 @@
     // p3.style.display = "block";
     // p4.style.display = "block";
     // p5.style.display = "block";
-    
+
     // div_mensagem.innerHTML = `<div> </div>`
- 
+
   }
 
-
-  function EnviarQuest() {
-
- 
     var input1 = [];
     var input2 = [];
     var input3 = [];
     var input4 = [];
 
+  function FezQuest() {
+
+    
+    var id = sessionStorage.ID_USUARIO;
 
     q4.style.display = "none";
     fim.style.display = "block";
-    botão_proxima.style.display = "none";  
-    botão_enviar.style.display = "block";  
+    botão_proxima.style.display = "none";
+    botão_enviar.style.display = "block";
 
-      for (var i1 = 0; i1 < q1.length; i1++) {
-        if (q1[i1].checked) {
-          input1.push(q1[i1].value);
-  
-        }
+    for (var i1 = 0; i1 < q1.length; i1++) {
+      if (q1[i1].checked) {
+        input1.push(q1[i1].value);
       }
-  
-      console.log(input1);
-  
-      for (var i2 = 0; i2 < q2.length; i2++) {
-        if (q2[i2].checked) {
-          input2.push(q2[i2].value);
-  
-        }
+    }
+    
+    for (var i2 = 0; i2 < q2.length; i2++) {
+      if (q2[i2].checked) {
+        input2.push(q2[i2].value);
       }
-  
-      for (var i3 = 0; i3 < q3.length; i3++) {
-        if (q3[i3].checked) {
-          input3.push(q3[i3].value);
-  
-        }
-      }
-  
-      for (var i4 = 0; i4 < q4.length; i4++) {
-        if (q4[i4].checked) {
-          input4.push(q4[i4].value);
-  
-        }
-      }   
-      
-      console.log(input4);
-    if (!q1 || !q2 || !q3 || q4.length == 0) {
-        alert("Todas as perguntas precisam ser respondidas.");
-        return;
     }
 
-    fetch(`/usuarios/EnviarQuest/${id}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            q1Server: q1,
-            q2Server: q2,
-            q3Server: q3,
-            q4Server: q4,
-            idUsuarioServer: id
+    for (var i3 = 0; i3 < q3.length; i3++) {
+      if (q3[i3].checked) {
+        input3.push(q3[i3].value);
+      }
+    }
 
-        })
+    for (var i4 = 0; i4 < q4.length; i4++) {
+      if (q4[i4].checked) {
+        input4.push(q4[i4].value);
+      }
+    }
+
+    console.log(input4);
+    if (!q1 || !q2 || !q3 || q4.length == 0) {
+      alert("Todas as perguntas precisam ser respondidas.");
+      return;
+    }
+
+    fetch(`/usuarios/FezQuest/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        q1Server: q1,
+        q2Server: q2,
+        q3Server: q3,
+        q4Server: q4,
+        idUsuarioServer: id
+      })
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO finalizar()!")
+      console.log("ESTOU NO THEN DO finalizar()!")
 
-        if (resposta.ok) {
-            console.log(resposta);
-            window.alert("Questionário finalizado com sucesso " + nome + "!");
-            var fezQuest = true;
-            fetch(`/usuarios/fazerQuest/${id}/${fezQuest}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    idUsuarioServer: id,
-                    fezQuestServer: fezQuest
-                }),
-            })
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-            });
-            window.location = "../index.html";
-        } else {
-            alert("Erro ao finalizar o questionário.");
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
+      if (resposta.ok) {
+        console.log(resposta);
+        window.alert("Questionário finalizado com sucesso " + nome + "!");
+        var fezQuest = true;
+        fetch(`/usuarios/FezQuest/${id}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            idUsuarioServer: id,
+            fezQuestServer: fezQuest
+          }),
+        })
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+        });
+        window.location = "../index.html";
+      } else {
+        alert("Erro ao finalizar o questionário.");
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
     }).catch(function (erro) {
-        console.log(erro);
+      console.log(erro);
     });
 
     return false;
 
 
+  }
 
 
-    }
-
-  
 </script>
