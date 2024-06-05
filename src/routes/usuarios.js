@@ -15,13 +15,16 @@ router.post("/autenticar", function (req, res) {
 
 
 
-router.post('/fazerQuiz/:id/:fezQuiz', function (req, res) {
-    usuarioController.fazerQuiz(req, res);
-});
+// router.post('/fazerQuiz/:id/:fezQuiz', function (req, res) {
+//     usuarioController.fazerQuiz(req, res);
+// });
 
 router.post('/fezQuiz/:id', function (req, res) {
     usuarioController.fezQuiz(req, res);
 });
+
+
+
 
 
 

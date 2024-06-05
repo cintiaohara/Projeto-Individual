@@ -598,7 +598,7 @@ footer
   background-color: #6f01ff;
   transition-duration: .3s;
 }
-/* linkdin*/
+/* linkedin*/
 .containerThree:hover {
   background-color: #0072b1;
   transition-duration: .3s;
@@ -1025,34 +1025,35 @@ label {
   width: 100%;
   text-align: center;
   
-
   
 }
 
-#q1{
+#pergunta1{
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   width: 100%;
- 
+  flex-direction: column;
+  flex-wrap: wrap;
 
 }
 
-#q2 {
+#pergunta2 {
   display: none;
 }
 
-#q3 {
+#pergunta3 {
   display: none;
 }
 
-#q4 {
+#pergunta4 {
   display: none;
 }
 
 #fim {
   display: none;
+  text-align: center;
 }
 
 #botão_proxima {

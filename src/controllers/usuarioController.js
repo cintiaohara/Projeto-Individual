@@ -83,7 +83,8 @@ function cadastrar(req, res) {
 
 function fezQuiz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo Site_Quiz.html
-    var id = req.params.id;
+    var id = req.body.idUsuarioServer;
+    var perfil = req.body.perfilServer;
     
     console.log(id)
 
@@ -93,7 +94,7 @@ function fezQuiz(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.fezQuiz(id)
+        usuarioModel.fezQuiz(perfil, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -114,12 +115,12 @@ function fezQuiz(req, res) {
 
 
 function fezQuest(req, res) {
-    var id = req.params.id;
-    var q1 = req.body.q1Server;
-    var q2 = req.body.q2Server;
-    var q3 = req.body.q3Server;
-    var q4 = req.body.q4Server;
-    var fkQuestUsuario = req.body.idServer;
+    var id = req.body.idUsuarioServer;
+    var q1 = req.body.input1Server;
+    var q2 = req.body.input2Server;
+    var q3 = req.body.input3Server;
+    var q4 = req.body.input4Server;
+    // var fkQuestUsuario = req.body.idServer;
 
     console.log(id)
 
@@ -130,7 +131,7 @@ function fezQuest(req, res) {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         console.log('teste');
-        usuarioModel.fezQuest(q1, q2, q3, q4, fkQuestUsuario, id)
+        usuarioModel.fezQuest(q1, q2, q3, q4, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -147,6 +148,8 @@ function fezQuest(req, res) {
             );
     }
 }
+
+
 
 // function EnviarQuest(req, res) {
 //     var q1 = req.body.q1Server;

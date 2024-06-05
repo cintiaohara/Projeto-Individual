@@ -42,8 +42,8 @@ function cadastrar(nome, email, senha) {
 // }
 
 
-function fezQuest(q1, q2, q3, q4, fkQuestUsuario, id) {
-    console.log("Finalizando questionário para o usuário:", fkQuestUsuario, id);
+function fezQuest(q1, q2, q3, q4, id) {
+    console.log("Finalizando questionário para o usuário:", id);
     var instrucao1Sql = `
         INSERT INTO questionario (questao1, questao2, questao3, questao4, fkQuestUsuario) VALUES ('${q1}', '${q2}', '${q3}', '${q4}', ${id});
     `;
@@ -77,10 +77,26 @@ function fezQuest(q1, q2, q3, q4, fkQuestUsuario, id) {
     }); */
 }
 
-function fezQuiz(id) {
+function fezQuiz(perfil, id) {
+
+    var instrucao1Sql = `
+    INSERT INTO quiz (perfil, fkQuizUsuario) VALUES ('${perfil}', ${id});
+`;    
+    var instrucao2Sql = `
+    UPDATE usuario set fezQuiz = true where id = ${id};
+`;
     var instrucaoSql = `
         SELECT fezQuiz FROM usuario WHERE id = ${id};
     `;
+
+
+ console.log("Executando a instrução SQL para finalizar o questionário: \n" + instrucao1Sql + instrucao2Sql);
+     database.executar(instrucao1Sql);
+    database.executar(instrucao2Sql).catch(erro => {
+        console.error("Erro ao cadastrar se o usuário fez o questionário ou não:", erro);  
+    return database.executar(instrucaoSql)
+    
+});
 
     return database.executar(instrucaoSql).then(resultado => {
         console.log(resultado)
