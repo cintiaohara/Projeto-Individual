@@ -1,7 +1,7 @@
 var alertas = [];
 
-function obterdados(idAquario) {
-    fetch(`/medidas/tempo-real/${idAquario}`)
+function obterdados(idQuest) {
+    fetch(`/medidas/tempo-real/${idQuest}`)
         .then(resposta => {
             if (resposta.status == 200) {
                 resposta.json().then(resposta => {
@@ -11,7 +11,7 @@ function obterdados(idAquario) {
                     alertar(resposta, idAquario);
                 });
             } else {
-                console.error(`Nenhum dado encontrado para o id ${idAquario} ou erro na API`);
+                console.error(`Nenhum dado encontrado para o id ${idQuest} ou erro na API`);
             }
         })
         .catch(function (error) {

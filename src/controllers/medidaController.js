@@ -1,14 +1,53 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function criarPerfil(req, res) {
+    var id = req.body.id;
+    var perfil = req.body.perfil;
 
-    const limite_linhas = 7;
+    if (id == undefined) {
+        res.status(400).send("Seu questao está undefined!");
+    } else if (perfil == undefined) {
+        res.status(400).send("Seu comida está undefined!");
+    } else {
+        medidaModel.criarPerfil(perfil, id).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
+}
 
-    var idAquario = req.params.idAquario;
+function atualizarPerfil(req, res) {
+    var id = req.body.id;
+    var perfil = req.body.perfil;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    if (id == undefined) {
+        res.status(400).send("Seu questao está undefined!");
+    } else if (perfil == undefined) {
+        res.status(400).send("Seu comida está undefined!");
+    } else {
+        medidaModel.criarPerfil(perfil, id).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
+}
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+function pegarQuantidadePerfil(req, res) {
+    medidaModel.pegarQuantidadePerfil().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -19,30 +58,59 @@ function buscarUltimasMedidas(req, res) {
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
+
 }
 
+function pegarPerfilUsuario(req, res) {
+    var id = req.params.id;
 
-function buscarMedidasEmTempoReal(req, res) {
+    if (id == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else {
 
-    var idAquario = req.params.idAquario;
+        medidaModel.pegarPerfilUsuario(id).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
 
-    console.log(`Recuperando medidas em tempo real`);
-
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+    }
 }
+
+function procurarVotos(req, res) {
+    var questao = req.params.questao;
+    var comida = req.params.comida;
+
+    if (questao == undefined) {
+        res.status(400).send("Seu questao está undefined!");
+    } else if (comida == undefined) {
+        res.status(400).send("Seu comida está undefined!");
+    } else {
+        medidaModel.procurarVotos(questao, comida).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao procurar os votos.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+    }
+}
+
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    criarPerfil,
+    atualizarPerfil,
+    pegarQuantidadePerfil,
+    pegarPerfilUsuario,
+    procurarVotos
 }

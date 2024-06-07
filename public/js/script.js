@@ -3,6 +3,9 @@ const LAST_QUESTION = 10;
 var selectedIndexes = [];
 var questionIndex = undefined;
 var selectedAnswers = [null, null, null, null, null, null, null, null, null, null];
+var perfilVar = "";
+var idUsuario = sessionStorage.ID_USUARIO;
+var jaFez = false;
 
 const startTest = () => {
   //generate 5 random questions indexes
@@ -315,6 +318,7 @@ const showPersonalities = (A, B, C, D) => {
 
     let element = `<li>   <br> Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença assim como é o Tempurá e o Udon, que misturam texturas e formas de comidas diferentes.`;
     document.getElementById("personalities").innerHTML += element;
+    perfilVar = "Calma e Equilibrada";
   } else if (B > A && B > C && B > D) {
     //show image
     document.getElementById("image").src = "assets/img_quiz/quiz2.png";
@@ -326,14 +330,16 @@ const showPersonalities = (A, B, C, D) => {
     <br>Você é uma pessoa ativa e sempre em movimento. As 4 comidas são perfeitas para pessoas que estão sempre "on the go". São comidas rápidas para pessoas ocupadas que estão sempre com algo para fazer. A monotonia não faz parte do seu vocabulário; você prospera em ambientes dinâmicos e desafiadores. Seja praticando esportes, participando de eventos ou simplesmente explorando novos lugares, você está sempre em busca de algo para fazer. Sua energia é contagiante, inspirando aqueles ao seu redor a se manterem ativos e envolvidos.`;
     document.getElementById("personalities").innerHTML += element;
 
+    perfilVar = "Ativa e Dinâmica";
   } else if (C > A && C > B && C > D) {
 
-    document.getElementById("image").src = "assets/img_quiz/quiz3.png";
+    document.getEpegarQuantidadePerfillementById("image").src = "assets/img_quiz/quiz3.png";
     document.getElementById("comida-combina").innerText = "Você combina com Chahan, Lamen, Oden, Sukiyaki e Yakisoba";
     document.getElementById("perfil").innerText = "Casual e Acolhedora";
     let element = `<br>Você é uma pessoa casual e acolhedora, que se preocupa profundamente com relacionamentos genuínos. O Chahan, Lamen, Oden, Sukiyaki e Yakisoba são comidas ideais para quem gosta de compartilhar comida com amigos e família. Assim como o Oden, você transmite um sentimento de acolhimento para as pessoas da sua vida. Para você, uma refeição é uma desculpa para reunir pessoas queridas e compartilhar momentos espontâneos e divertidos. Sua natureza social e empática faz com que você seja o coração dos seus círculos sociais, sempre pronto para criar memórias e apreciar a companhia daqueles que ama.`;
     document.getElementById("personalities").innerHTML += element;
 
+    perfilVar = "Casual e Acolhedora";
   } else if (D > A && D > B && D > C) {
 
     document.getElementById("image").src = "assets/img_quiz/quiz4.png";
@@ -341,6 +347,7 @@ const showPersonalities = (A, B, C, D) => {
     document.getElementById("perfil").innerText = "Criativa e Excêntrica";
     let element = `Você é uma pessoa criativa e excêntrica, apaixonada por hobbies originais e música indie. Adora experimentar novos sabores e explorar a diversidade culinária. Sua autenticidade e curiosidade tornam sua jornada de descoberta tanto na arte quanto na gastronomia verdadeiramente inspiradora.`;
     document.getElementById("personalities").innerHTML += element;
+    perfilVar = "Criativa e Excêntrica";
   }
 
   //show test result
@@ -351,7 +358,76 @@ const showPersonalities = (A, B, C, D) => {
 
   //show the right side
   document.getElementsByClassName("your-answers")[0].style.display = "block";
+
+  if (perfilVar != "") {
+    if (jaFez) {
+
+      fetch(`/medidas/atualizarPerfil`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idUsuario,
+          perfil: perfilVar
+        }),
+      }).then(function (response) {
+        if (response.ok) {
+
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${resposta}`);
+          });
+
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+    } else {
+
+      fetch(`/medidas/criarPerfil`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idUsuario,
+          perfil: perfilVar
+        }),
+      }).then(function (response) {
+        if (response.ok) {
+
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${resposta}`);
+          });
+
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+      
+    }
+  }
 };
+
+verificarJaVotou()
+function verificarJaVotou() {
+  fetch(`/medidas/pegarPerfilUsuario/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    console.log(response)
+    if (response.status == 200) {
+      jaFez = true;
+    } else if (response.status == 204) {
+      jaFez = false;
+    }
+  }).catch(function (error) {
+    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  });
+}
+
 
 const restartQuestion = () => {
   window.location.reload();
@@ -360,60 +436,60 @@ const restartQuestion = () => {
 
 const fezQuiz = () => {
 
-  var perfil = document.getElementById("perfil").textContent;
+  // var perfil = document.getElementById("perfil").textContent;
   console.log(perfil)
   var id = sessionStorage.ID_USUARIO;
   var nome = sessionStorage.NOME_USUARIO;
 
 
-  if (perfil == "") {
-    alert("Todas as perguntas precisam ser respondidas.");
-    return;
-  }var fezQuiz = true;
-  fetch(`/usuarios/FezQuiz/${id}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      perfilServer: perfil,
-      idUsuarioServer: id,
-      fezQuestServer: fezQuiz
-    })
-  }).then(function (resposta) {
-    console.log("ESTOU NO THEN DO finalizar()!")
+  // if (perfil == "") {
+  //   alert("Todas as perguntas precisam ser respondidas.");
+  //   return;
+  // }var fezQuiz = true;
+  // fetch(`/usuarios/FezQuiz/${id}`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({
+  //     perfilServer: perfil,
+  //     idUsuarioServer: id,
+  //     fezQuestServer: fezQuiz
+  //   })
+  // }).then(function (resposta) {
+  //   console.log("ESTOU NO THEN DO finalizar()!")
 
-    if (resposta.ok) {
-      resposta.json().then(json => {
-        console.log(json);
-        console.log(JSON.stringify(json));
-      })
-    } else {
-      resposta.text().then(texto => {
-        console.error(texto);
-      });
-      // alert("Erro ao finalizar o questionário.");
-      //  alert("Quiz finalizado com sucesso.");
-      //  if (resposta.ok) {
-      //    console.log(resposta);
-      //    window.alert("Quiz finalizado com sucesso " + nome + "!");
-      //    var fezQuest = true;
-      //    fetch(`/usuarios/FezQuiz/${id}`, {
-      //      method: "POST",
-      //      headers: {
-      //        "Content-Type": "application/json"
-      //      },
-      //      body: JSON.stringify({
-      //        idUsuarioServer: id,
-      //        fezQuestServer: fezQuest
-      //      }),
-      //    })
-      
-    };
+  //   if (resposta.ok) {
+  //     resposta.json().then(json => {
+  //       console.log(json);
+  //       console.log(JSON.stringify(json));
+  //     })
+  //   } else {
+  //     resposta.text().then(texto => {
+  //       console.error(texto);
+  //     });
+  //     // alert("Erro ao finalizar o questionário.");
+  //     //  alert("Quiz finalizado com sucesso.");
+  //     //  if (resposta.ok) {
+  //     //    console.log(resposta);
+  //     //    window.alert("Quiz finalizado com sucesso " + nome + "!");
+  //     //    var fezQuest = true;
+  //     //    fetch(`/usuarios/FezQuiz/${id}`, {
+  //     //      method: "POST",
+  //     //      headers: {
+  //     //        "Content-Type": "application/json"
+  //     //      },
+  //     //      body: JSON.stringify({
+  //     //        idUsuarioServer: id,
+  //     //        fezQuestServer: fezQuest
+  //     //      }),
+  //     //    })
+
+  //   };
   //  alert("Quiz finalizado com sucesso.");
   //  window.location = "../index.html";
 
-  return false;
-})
+  //   return false;
+  // })
 
 }

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -12,54 +13,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <script src="../public/js/loginfeito.js" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="../public/assets/favicon-32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
-<body>
 
-    <!-- <div class="header">
-        <div class="container_navi">
+<body onload="abrirAba(event, 'chartTab1'); pegarDados(), pegarDadosPerfil()">
 
-
-            <h1>MINUS SUSHI</h1>
-            <ul class="navibar">
-
-              <a href="./site.html">
-                home</a>
-            <a id="site.html#sobre_projeto">
-                projeto</a>
-            <a id="site.html#sobre_projeto">
-                sobre mim</a>
-            <a href="./comidas.html">
-                menu</a>
-            <a href="./site.html">
-                quiz</a>
-            <a href="./site.html">
-                dashboard</a>
-            <a href="./cadastro.html">
-                login/cadastro</a>
-
-            </ul>
-
-        </div>
-    </div> -->
-
-
-   
-   
-        <!-- <span class="material-symbols-outlined" onclick="clickMenu()">
-            menu
-            </span>
-            <menu id="itens">
-                <div class="sidebar">
-
-        <li><a href="#"> LINK 1</li></a>
-        <li><a href="#"> LINK 2</li></a>
-        <li><a href="#"> LINK 3</li></a>
-        <li><a href="#"> LINK 4</li></a>
-    </div>
-    </menu> -->
 
 
     <div class="janela">
@@ -70,7 +32,7 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            
+
 
             <div class="btn-nav">
 
@@ -79,10 +41,18 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                <a href="./quiz_personalidade.html">
+                    <h3>Quiz Personalidade</h3>
                 </a>
             </div>
+
+            <div class="btn-nav-white">
+                <a href="./questionario.html">
+                    <h3>Questionário</h3>
+                </a>
+            </div>
+
+
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -98,315 +68,482 @@
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
             </div>
             <div id="graficos">
+
+
+
+                <div class="perfil">
+
+
+                    <div class="container-perfil">
+
+                        <h2>Seu perfil é </h2>
+                        <br>
+                        <br>
+                        <br>
+                        <h2 id="perfil_usuario"></h2>
+
+                    </div>
+                    <div class="porcentagem-perfil">
+                        <h3 id="porcentagem_perfil">45%</h3> das pessoas têm o mesmo perfil que você
+                    </div>
+
+
+                    <div class="grafico-donut">
+                        <canvas id="myChart5"></canvas>
+                    </div>
+                </div>
+
+
+
+                <div class="container-grafico">
+                    <div class="header_tab">
+                        <div class="titulo">
+                            <h3>Questionário</h3>
+                        </div>
+
+                        <div class="botões">
+                            <button class="tablinks active primeiro_botao" onclick="abrirAba(event, 'chartTab1')">Qual
+                                prato você já provou e gostou?</button>
+                            <button class="tablinks" onclick="abrirAba(event, 'chartTab2')">Qual prato você já provou e
+                                não gostou?</button>
+                            <button class="tablinks" onclick=" abrirAba(event, 'chartTab3')">Qual prato você mais tem
+                                interesse em experimentar?</button>
+                            <button class="tablinks ultimo_botao" onclick="abrirAba(event, 'chartTab4')">Selecione todos
+                                os pratos que você não conhecia</button>
+
+                        </div>
+                    </div>
+
+
+                    <div id="chartTab1" class="conteudoAba" style="display: block;">
+                        <canvas id="myChart1" width="600" height="200"></canvas>
+
+                    </div>
+
+                    <div id="chartTab2" class="conteudoAba">
+                        <canvas id="myChart2" width="600" height="200"></canvas>
+
+                    </div>
+
+                    <div id="chartTab3" class="conteudoAba">
+                        <canvas id="myChart3" width="600" height="200"></canvas>
+
+                    </div>
+
+
+                    <div id="chartTab4" class="conteudoAba">
+                        <canvas id="myChart4" width="600" height="200"></canvas>
+
+                    </div>
+
+                </div>
             </div>
+
         </div>
+
+
+
+
+        <!-- 
+                <div class="grafico_quest">
+                    <div class="titulo">
+                        <h1>Comidas </h1>
+                    </div>
+                    <canvas id="myChart" width="600" height="200"></canvas>
+                  </div> -->
+
+    </div>
+    </div>
     </div>
 
 
 </body>
 
-    
-</body>
 </html>
 
 <script>
 
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+var idUsuario = sessionStorage.ID_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-let proximaAtualizacao;
+    // Abrir Aba
 
-window.onload = exibirAquariosDoUsuario();
+    function abrirAba(evt, tabName) {
+        var i, conteudoAba, tablinks;
 
-function exibirAquariosDoUsuario() {
-    var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-    aquarios.forEach(item => {
-        document.getElementById("btnAquario").innerHTML += `
-        <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-        `
+        // Esconde os elementos exceto a aba que está clicada
+        conteudoAba = document.getElementsByClassName("conteudoAba");
+        for (i = 0; i < conteudoAba.length; i++) {
+            conteudoAba[i].style.display = "none";
+        }
 
-        document.getElementById("graficos").innerHTML += `
-            <div id="grafico${item.id}" class="display-none">
-                <h3 class="tituloGraficos">
-                    <span id="tituloAquario${item.id}">${item.descricao}</span>
-                </h3>
-                <div class="graph">
-                    <canvas id="myChartCanvas${item.id}"></canvas>
-                </div>
-                <div class="label-captura">
-                    <p id="avisoCaptura${item.id}" style="color: white"></p>
-                </div>
-            </div>
-        `
+        // Remove a classe active de todos os botões das abas
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
 
-        obterDadosGrafico(item.id)
-    });
+        // Mostra o conteúdo da aba selecionada
+        document.getElementById(tabName).style.display = "block";
 
-    if (aquarios.length > 0) {
-        exibirAquario(aquarios[0].id)
+        // Adiciona a classe active para o botão qdo a aba é aberta
+        evt.currentTarget.className += " active";
     }
-}
 
-function alterarTitulo(idAquario) {
-    var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-    tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-}
 
-function exibirAquario(idAquario) {
-    let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);
 
-    for (i = 0; i < todosOsGraficos.length; i++) {
-        // exibindo - ou não - o gráfico
-        if (todosOsGraficos[i].id != idAquario) {
-            let elementoAtual = document.getElementById(`grafico${todosOsGraficos[i].id}`)
-            if (elementoAtual.classList.contains("display-block")) {
-                elementoAtual.classList.remove("display-block")
+    var lista_comidas = ["chahan", "chawanmushi", "donburi", "gyoza", "karaage", "kare", "lamen", "missoshiro", "natto", "oden", "okonomiyaki", "omuraisu", "onigiri", "sukiyaki", "takoyaki", "tempura", "tonkatsu", "udon", "yakisoba", "yakitori"]
+    var quantidade_perguntas = 4;
+    var lista_votos1 = [];
+    var lista_votos2 = [];
+    var lista_votos3 = [];
+    var lista_votos4 = [];
+
+
+
+    async function pegarDados() {
+        for (var i = 1; i <= quantidade_perguntas; i++) {
+            // console.log(`MENSAGEM`);
+            for (var j = 0; j < lista_comidas.length; j++) {
+                // console.log(`1. Dados recebidos: ${i} ${j} ${lista_comidas[j]}`);
+                await fetch(`/medidas/procurarVotos/${i}/${lista_comidas[j]}`, { cache: 'no-store' }).then(function (response) {
+                    if (response.ok) {
+                        
+                        response.json().then(function (resposta) {
+                            // console.log(`2. Dados recebidos: ${i} ${j} ${JSON.stringify(resposta[0].votos)}`);
+                            if (i == 1) {
+                                lista_votos1.push(JSON.stringify(resposta[0].votos));
+                                // console.log(`Posição: ${i} ${j} ${lista_comidas[j]}`);
+                            } else if (i == 2) {
+                                lista_votos2.push(JSON.stringify(resposta[0].votos));
+                            } else if (i == 3) {
+                                lista_votos3.push(JSON.stringify(resposta[0].votos));
+                            } else {
+                                lista_votos4.push(JSON.stringify(resposta[0].votos));
+                            }
+                        });
+
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                }).catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
             }
-            elementoAtual.classList.add("display-none")
-
-            // alterando estilo do botão
-            let btnAtual = document.getElementById(`btnAquario${todosOsGraficos[i].id}`)
-            if (btnAtual.classList.contains("btn-pink")) {
-                btnAtual.classList.remove("btn-pink")
+            if (i == 4) {
+                criarGraficosVotos();
             }
-            btnAtual.classList.add("btn-white")
         }
     }
 
-    // exibindo - ou não - o gráfico
-    let graficoExibir = document.getElementById(`grafico${idAquario}`)
-    graficoExibir.classList.remove("display-none")
-    graficoExibir.classList.add("display-block")
 
-    // alterando estilo do botão
-    let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    btnExibir.classList.remove("btn-white")
-    btnExibir.classList.add("btn-pink")
-}
+    function criarGraficosVotos() {
+        console.log(lista_votos1)
+        console.log(lista_votos2)
+        console.log(lista_votos3)
+        console.log(lista_votos4)
+        const ctx = document.getElementById('myChart1');
 
-// O gráfico é construído com três funções:
-// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
-
-// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-// A função *obterDadosGrafico* também invoca a função *plotarGrafico*
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
-function obterDadosGrafico(idAquario) {
-
-    alterarTitulo(idAquario)
-
-    if (proximaAtualizacao != undefined) {
-        clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-                plotarGrafico(resposta, idAquario);
-
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: lista_comidas,
+                datasets: [{
+                    label: 'Votos',
+                    data: lista_votos1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
-}
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta, idAquario) {
+        // Segundo Gráfico 
+        const ctx2 = document.getElementById('myChart2');
 
-    console.log('iniciando plotagem do gráfico...');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: lista_comidas,
+                datasets: [{
+                    label: 'Votos',
+                    data: lista_votos2,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
 
-    // Criando estrutura para plotar gráfico - dados
 
-    let dados = {
-        labels: labels,
-        datasets: [{
-            label: 'Umidade',
-            data: [],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
+        // Terceiro Gráfico 
+        const ctx3 = document.getElementById('myChart3');
+
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: lista_comidas,
+                datasets: [{
+                    label: 'Votos',
+                    data: lista_votos3,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+        // Quarto Gráfico
+        const ctx4 = document.getElementById('myChart4');
+
+        new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: lista_comidas,
+                datasets: [{
+                    label: 'Votos',
+                    data: lista_votos4,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+    var dados_calma = 0;
+    var dados_ativa = 0;
+    var dados_casual = 0;
+    var dados_criativa = 0;
+    var total = 0;
+    var porcentagem_calma = 0;
+    var porcentagem_ativa = 0;
+    var porcentagem_casual = 0;
+    var porcentagem_criativa = 0;
+
+
+    function pegarDadosPerfilUsuario() {
+        fetch(`/medidas/pegarPerfilUsuario/${idUsuario}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }).then(function (response) {
+        console.log(response)
+        if (response.ok) {
+
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${resposta}`);
+            adicionarPorcentagem(JSON.stringify(resposta[0].perfil))
+          });
+
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+    }
+
+    function adicionarPorcentagem(resposta) {
+        dados_ativa = dados_ativa.replaceAll('"', '');
+        dados_calma = dados_calma.replaceAll('"', '');
+        dados_casual = dados_casual.replaceAll('"', '');
+        dados_criativa = dados_criativa.replaceAll('"', '');
+        resposta = resposta.replaceAll('"', '');
+        total = Number(dados_ativa) + Number(dados_calma) + Number(dados_casual) + Number(dados_criativa);
+        porcentagem_calma = (dados_calma / total * 100).toFixed();
+        porcentagem_casual = (dados_casual / total * 100).toFixed();
+        porcentagem_ativa = (dados_ativa / total * 100).toFixed();
+        porcentagem_criativa = (dados_criativa / total * 100).toFixed();
+        if (resposta == "Calma e Equilibrada") {
+            document.getElementById("porcentagem_perfil").innerHTML = porcentagem_calma + "%"
+        } else if (resposta == "Ativa e Dinâmica") {
+            document.getElementById("porcentagem_perfil").innerHTML = porcentagem_ativa + "%"
+        } else if (resposta == "Casual e Acolhedora") {
+            document.getElementById("porcentagem_perfil").innerHTML = porcentagem_casual + "%"
+        } else if (resposta == "Criativa e Excêntrica") {
+            document.getElementById("porcentagem_perfil").innerHTML = porcentagem_criativa + "%"
+        }
+        document.getElementById("perfil_usuario").innerHTML = resposta;
+        criarGraficosPerfil();
+    }
+
+
+
+    function pegarDadosPerfil() {
+        fetch(`/medidas/pegarQuantidadePerfil`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      }).then(function (response) {
+        console.log(response)
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta[0])}`);
+            dados_calma = JSON.stringify(resposta[0].calma);
+            dados_ativa = JSON.stringify(resposta[0].ativa);
+            dados_casual = JSON.stringify(resposta[0].casual);
+            dados_criativa = JSON.stringify(resposta[0].criativa);
+            pegarDadosPerfilUsuario();
+          });
+
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+    }
+
+
+
+    function criarGraficosPerfil() {
+        const ctx5 = document.getElementById('myChart5');
+        
+        new Chart(ctx5, {
+            type: 'doughnut',
+            data: {
+                labels: ['Calma e Equilibrada', 'Ativa e Dinâmica', 'Casual e Acolhedora', 'Criativa e Excêntrica'],
+                datasets: [{
+                    label: 'Porcentagem',
+                    data: [porcentagem_calma, porcentagem_ativa, porcentagem_casual, porcentagem_criativa],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
         },
-        {
-            label: 'Temperatura',
-            data: [],
-            fill: false,
-            borderColor: 'rgb(199, 52, 52)',
-            tension: 0.1
-        }]
-    };
-
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
-        dados.datasets[1].data.push(registro.temperatura);
-    }
-
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  },
-};
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-        document.getElementById(`myChartCanvas${idAquario}`),
-
-  
-    data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First Dataset',
-    data: [65, 59, 80, 81, 56, 55, 40],
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
-  }]
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
 }
-
 
         
-    );
-
-
-
-
-
-    
-
-    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-}
-
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
-function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-    fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (novoRegistro) {
-
-                obterdados(idAquario);
-                // alertar(novoRegistro, idAquario);
-                console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                console.log(`Dados atuais do gráfico:`);
-                console.log(dados);
-
-                let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                avisoCaptura.innerHTML = ""
-
-
-                if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                    console.log("---------------------------------------------------------------")
-                    console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                    avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                    console.log("Horário do novo dado capturado:")
-                    console.log(novoRegistro[0].momento_grafico)
-                    console.log("Horário do último dado capturado:")
-                    console.log(dados.labels[dados.labels.length - 1])
-                    console.log("---------------------------------------------------------------")
-                } else {
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                    myChart.update();
-                }
-
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-
-}
-
-
-
-
-    function clickMenu(){
-
-       if (itens.style.display == 'block'){
-
-        itens.style.display = 'none'
-       } else {
-
-        itens.style.display = 'block'
-
-       }
-
-    }
-
 
 
 

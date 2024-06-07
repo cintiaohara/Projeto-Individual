@@ -1156,7 +1156,7 @@
 
           </label>
           <label>
-            <input type="checkbox" id="q3" name="q3"  value="tonkatsu"> tonkatsu<br>
+            <input type="checkbox" id="q3" name="q3" value="tonkatsu"> tonkatsu<br>
             <div class="card-container1" style="background-image: url(assets/imagens_comidas/tonkatsu.jpg);  background-size: cover;
           background-position: center; background-repeat: no-repeat;">
               <div class="card">
@@ -1214,7 +1214,7 @@
 
 
           <label>
-            <input type="checkbox" id="q3" name="q3"  value="yakitori"> yakitori<br>
+            <input type="checkbox" id="q3" name="q3" value="yakitori"> yakitori<br>
             <div class="card-container1" style="background-image: url(assets/imagens_comidas/Yakitori.jpg);  background-size: cover;
           background-position: center; background-repeat: no-repeat;">
               <div class="card">
@@ -1678,10 +1678,10 @@
   var botão_enviar = document.getElementById("botão_enviar");
 
   function proximaPergunta() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // for a smooth scrolling effect
-    });
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth' // for a smooth scrolling effect
+    // });
 
     if (pergunta1.style.display !== "none") {
       pergunta1.style.display = "none";
@@ -1724,6 +1724,7 @@
 
     // div_mensagem.innerHTML = `<div> </div>`
 
+    window.location.href = "#quiz";
   }
 
   function FezQuest() {

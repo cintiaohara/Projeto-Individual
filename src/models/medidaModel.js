@@ -1,35 +1,65 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+function criarPerfil(perfil, id) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
-                    WHERE fk_aquario = ${idAquario}
-                    ORDER BY id DESC LIMIT ${limite_linhas}`;
+    var instrucaoSql = `
+    insert into quiz (perfil, fkQuizUsuario) values ('${perfil}', ${id});
+                    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function atualizarPerfil(perfil, id) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+    var instrucaoSql = `
+    update quiz set perfil = '${perfil}' where fkQuizUsuario = ${id};
+                    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function pegarQuantidadePerfil() {
+
+    var instrucaoSql = `
+    select sum(case when perfil = 'Calma e Equilibrada' then 1 else 0 end) as calma,
+        sum(case when perfil = 'Ativa e Dinâmica' then 1 else 0 end) as ativa,
+        sum(case when perfil = 'Casual e Acolhedora' then 1 else 0 end) as casual,
+        sum(case when perfil = 'Criativa e Excêntrica' then 1 else 0 end) as criativa
+        from quiz;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function pegarPerfilUsuario(id) {
+
+    var instrucaoSql = `
+    select perfil from quiz where fkQuizUsuario = ${id};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+function procurarVotos(questao, comida) {
+
+    var instrucaoSql = `
+    select count(fkQuestUsuario) as votos from questionario where questao${questao} LIKE '%${comida}%';
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    criarPerfil,
+    atualizarPerfil,
+    pegarQuantidadePerfil,
+    pegarPerfilUsuario,
+    procurarVotos
 }

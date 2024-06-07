@@ -16,7 +16,7 @@ function cadastrar(nome, email, senha) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha, FezQuiz, FezQuest) VALUES ('${nome}','${email}', '${senha}', false, false);
+        INSERT INTO usuario (nome, email, senha, FezQuiz, FezQuest) VALUES ('${nome}','${email}', '${senha}', 0, 0);
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

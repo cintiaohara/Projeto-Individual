@@ -12,8 +12,8 @@ body {
     background-size: cover; 
     background-repeat: repeat; 
     background-position: center center; 
-   
-    
+    /* background-image: url(../assets/ikebana1.jpg); */
+  
 }
 
 .container_navi {

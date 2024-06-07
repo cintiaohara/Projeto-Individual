@@ -1465,12 +1465,12 @@ canvas {
   left: 0;
   z-index: 999;
   height: 100vh;
-  width: 20%;
+  width: 17%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
+  border-right: 3px solid #ffffff;
   background-color: #212124;
 }
 
@@ -1549,3 +1549,113 @@ canvas {
   cursor: pointer;
 }
 
+#graficos {
+
+  width: 90%;
+  margin-left: 70px;
+
+}
+
+.botões {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border: solid 1px #ffffff;
+  
+}
+
+.titulo {
+
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  
+}
+
+.header-tab {
+
+  background-color: red;
+}
+
+.container-perfil {
+
+  color: #ffffff;
+  border: solid 2px #ffffff;
+  border-radius: 6px 6px;
+  font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: space-between;
+  margin: 15px;
+  width:30%;
+}
+
+
+
+.porcentagem-perfil {
+  border: solid 2px #ffffff;
+ 
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 5px;
+  flex-direction: column;
+  width:30%;
+  margin: 15px;
+}
+.porcentagem-perfil h3 {
+
+  font-size: 40px;
+}
+
+
+.grafico-donut {
+  border: solid 2px #ffffff;
+  margin: 15px;
+  width:35%;
+}
+.perfil {
+
+  width:100%;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Quicksand", sans-serif;
+  flex-direction: row;
+  display: flex;
+  font-family: "Carme", sans-serif;
+}
+
+
+#myChart2 {
+  display: block;
+}
+
+#myChart2 {
+  display: none;
+}
+
+#myChart3 {
+  display: none;
+}
+
+#myChart4 {
+  display: none;
+}
+
+#myChart5 {
+
+  width: 150px;
+}
+
+.container-grafico {
+
+  margin: 15px;
+  border: solid 2px #ffffff;
+  border-radius: 6px 6px;
+  padding: 10px;
+}
