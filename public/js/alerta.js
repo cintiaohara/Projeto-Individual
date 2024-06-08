@@ -128,7 +128,7 @@ function atualizacaoPeriodica() {
 function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
     if (nome != undefined) {
-        login.innerHTML = `| Bem vindo(a), ${nome}`;
+        login.innerHTML = `Bem vindo(a), ${nome}`;
         login.href = "";
         quiz.href = "./quiz_personalidade.html";
         questionario.href = "./questionario.html";

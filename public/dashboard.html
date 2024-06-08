@@ -11,8 +11,12 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="../public/assets/favicon-32x32.png">
@@ -52,6 +56,13 @@
                 </a>
             </div>
 
+            
+            <div class="btn-nav-white">
+                <a href="./index.html">
+                    <h3>Home</h3>
+                </a>
+            </div>
+
 
 
             <div class="btn-logout" onclick="limparSessao()">
@@ -76,11 +87,11 @@
 
                     <div class="container-perfil">
 
-                        <h2>Seu perfil é </h2>
+                        <h2>Seu perfil</h2>
                         <br>
                         <br>
                         <br>
-                        <h2 id="perfil_usuario"></h2>
+                        <h1 id="perfil_usuario"></h1>
 
                     </div>
                     <div class="porcentagem-perfil">
@@ -98,17 +109,17 @@
                 <div class="container-grafico">
                     <div class="header_tab">
                         <div class="titulo">
-                            <h3>Questionário</h3>
+                            <h3>Total de Votos do Questionário</h3>
                         </div>
 
                         <div class="botões">
-                            <button class="tablinks active primeiro_botao" onclick="abrirAba(event, 'chartTab1')">Qual
+                            <button class="botão" onclick="abrirAba(event, 'chartTab1')">Qual
                                 prato você já provou e gostou?</button>
-                            <button class="tablinks" onclick="abrirAba(event, 'chartTab2')">Qual prato você já provou e
+                            <button class="botão" onclick="abrirAba(event, 'chartTab2')">Qual prato você já provou e
                                 não gostou?</button>
-                            <button class="tablinks" onclick=" abrirAba(event, 'chartTab3')">Qual prato você mais tem
+                            <button class="botão" onclick=" abrirAba(event, 'chartTab3')">Qual prato você mais tem
                                 interesse em experimentar?</button>
-                            <button class="tablinks ultimo_botao" onclick="abrirAba(event, 'chartTab4')">Selecione todos
+                            <button class="botão" onclick="abrirAba(event, 'chartTab4')">Selecione todos
                                 os pratos que você não conhecia</button>
 
                         </div>
@@ -116,23 +127,23 @@
 
 
                     <div id="chartTab1" class="conteudoAba" style="display: block;">
-                        <canvas id="myChart1" width="600" height="200"></canvas>
+                        <canvas id="myChart1" padding="10px" width="600" height="200"></canvas>
 
                     </div>
 
                     <div id="chartTab2" class="conteudoAba">
-                        <canvas id="myChart2" width="600" height="200"></canvas>
+                        <canvas id="myChart2" padding="10px" width="600" height="200"></canvas>
 
                     </div>
 
                     <div id="chartTab3" class="conteudoAba">
-                        <canvas id="myChart3" width="600" height="200"></canvas>
+                        <canvas id="myChart3" padding="10px" width="600" height="200"></canvas>
 
                     </div>
 
 
                     <div id="chartTab4" class="conteudoAba">
-                        <canvas id="myChart4" width="600" height="200"></canvas>
+                        <canvas id="myChart4" padding="10px" width="600" height="200"></canvas>
 
                     </div>
 
@@ -205,7 +216,7 @@ var idUsuario = sessionStorage.ID_USUARIO;
         for (var i = 1; i <= quantidade_perguntas; i++) {
             // console.log(`MENSAGEM`);
             for (var j = 0; j < lista_comidas.length; j++) {
-                // console.log(`1. Dados recebidos: ${i} ${j} ${lista_comidas[j]}`);
+                 console.log(`1. Dados recebidos: ${i} ${j} ${lista_comidas[j]}  `);
                 await fetch(`/medidas/procurarVotos/${i}/${lista_comidas[j]}`, { cache: 'no-store' }).then(function (response) {
                     if (response.ok) {
                         
@@ -458,13 +469,13 @@ var idUsuario = sessionStorage.ID_USUARIO;
         porcentagem_casual = (dados_casual / total * 100).toFixed();
         porcentagem_ativa = (dados_ativa / total * 100).toFixed();
         porcentagem_criativa = (dados_criativa / total * 100).toFixed();
-        if (resposta == "Calma e Equilibrada") {
+        if (resposta == "Calmo e Equilibrado") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_calma + "%"
-        } else if (resposta == "Ativa e Dinâmica") {
+        } else if (resposta == "Ativo e Dinâmico") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_ativa + "%"
-        } else if (resposta == "Casual e Acolhedora") {
+        } else if (resposta == "Casual e Acolhedor") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_casual + "%"
-        } else if (resposta == "Criativa e Excêntrica") {
+        } else if (resposta == "Criativo e Excêntrico") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_criativa + "%"
         }
         document.getElementById("perfil_usuario").innerHTML = resposta;
@@ -507,7 +518,7 @@ var idUsuario = sessionStorage.ID_USUARIO;
         new Chart(ctx5, {
             type: 'doughnut',
             data: {
-                labels: ['Calma e Equilibrada', 'Ativa e Dinâmica', 'Casual e Acolhedora', 'Criativa e Excêntrica'],
+                labels: ['Calmo e Equilibrado', 'Ativo e Dinâmico', 'Casual e Acolhedor', 'Criativo e Excêntrico'],
                 datasets: [{
                     label: 'Porcentagem',
                     data: [porcentagem_calma, porcentagem_ativa, porcentagem_casual, porcentagem_criativa],
@@ -533,11 +544,23 @@ var idUsuario = sessionStorage.ID_USUARIO;
             }]
         },
         options: {
+            
             scales: {
                 y: {
                     beginAtZero: true
                 }
             }
+        },
+        plugins: {
+                    legend: {
+                        position: 'right', // Position the legend to the right
+                        labels: {
+                            color: 'blue', // Change the font color of the legend
+                            font: {
+                                size: 14 // Optional: Change the font size
+                            }
+                        }
+                    }
         }
     });
     
@@ -546,6 +569,5 @@ var idUsuario = sessionStorage.ID_USUARIO;
         
 
 
-
-
 </script>
+

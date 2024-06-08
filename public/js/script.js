@@ -313,41 +313,41 @@ const showPersonalities = (A, B, C, D) => {
 
 
     document.getElementById("comida-combina").innerText = "Você combina com Kaarage, Missoshiro, Omuraisu, Tempurá e Udon";
-    document.getElementById("perfil").innerText = "Calma e Equilibrada";
+    document.getElementById("perfil").innerText = "Calmo e Equilibrado";
     //append personality traits
 
     let element = `<li>   <br> Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença assim como é o Tempurá e o Udon, que misturam texturas e formas de comidas diferentes.`;
     document.getElementById("personalities").innerHTML += element;
-    perfilVar = "Calma e Equilibrada";
+    perfilVar = "Calmo e Equilibrado";
   } else if (B > A && B > C && B > D) {
     //show image
     document.getElementById("image").src = "assets/img_quiz/quiz2.png";
     document.getElementById("comida-combina").innerText = "Você combina com Gyoza, Donburi, Natto, Onigiri e Yakitori";
-    document.getElementById("perfil").innerText = "Ativa e Dinâmica";
+    document.getElementById("perfil").innerText = "Ativo e Dinâmico";
 
     //append personality traits
     let element = `
     <br>Você é uma pessoa ativa e sempre em movimento. As 4 comidas são perfeitas para pessoas que estão sempre "on the go". São comidas rápidas para pessoas ocupadas que estão sempre com algo para fazer. A monotonia não faz parte do seu vocabulário; você prospera em ambientes dinâmicos e desafiadores. Seja praticando esportes, participando de eventos ou simplesmente explorando novos lugares, você está sempre em busca de algo para fazer. Sua energia é contagiante, inspirando aqueles ao seu redor a se manterem ativos e envolvidos.`;
     document.getElementById("personalities").innerHTML += element;
 
-    perfilVar = "Ativa e Dinâmica";
+    perfilVar = "Ativo e Dinâmico";
   } else if (C > A && C > B && C > D) {
 
-    document.getEpegarQuantidadePerfillementById("image").src = "assets/img_quiz/quiz3.png";
+    document.getElementById("image").src = "assets/img_quiz/quiz3.png";
     document.getElementById("comida-combina").innerText = "Você combina com Chahan, Lamen, Oden, Sukiyaki e Yakisoba";
-    document.getElementById("perfil").innerText = "Casual e Acolhedora";
+    document.getElementById("perfil").innerText = "Casual e Acolhedor";
     let element = `<br>Você é uma pessoa casual e acolhedora, que se preocupa profundamente com relacionamentos genuínos. O Chahan, Lamen, Oden, Sukiyaki e Yakisoba são comidas ideais para quem gosta de compartilhar comida com amigos e família. Assim como o Oden, você transmite um sentimento de acolhimento para as pessoas da sua vida. Para você, uma refeição é uma desculpa para reunir pessoas queridas e compartilhar momentos espontâneos e divertidos. Sua natureza social e empática faz com que você seja o coração dos seus círculos sociais, sempre pronto para criar memórias e apreciar a companhia daqueles que ama.`;
     document.getElementById("personalities").innerHTML += element;
 
-    perfilVar = "Casual e Acolhedora";
+    perfilVar = "Casual e Acolhedor";
   } else if (D > A && D > B && D > C) {
 
     document.getElementById("image").src = "assets/img_quiz/quiz4.png";
     document.getElementById("comida-combina").innerText = "Você combina com Chawanmushi, Kare, Okonomiyaki, Takoyaki e Tonkatsu";
-    document.getElementById("perfil").innerText = "Criativa e Excêntrica";
+    document.getElementById("perfil").innerText = "Criativo e Excêntrico";
     let element = `Você é uma pessoa criativa e excêntrica, apaixonada por hobbies originais e música indie. Adora experimentar novos sabores e explorar a diversidade culinária. Sua autenticidade e curiosidade tornam sua jornada de descoberta tanto na arte quanto na gastronomia verdadeiramente inspiradora.`;
     document.getElementById("personalities").innerHTML += element;
-    perfilVar = "Criativa e Excêntrica";
+    perfilVar = "Criativo e Excêntrico";
   }
 
   //show test result

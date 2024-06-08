@@ -116,8 +116,9 @@
                 <a href="comidas.html">
                     <li>Menu</li>
                 </a>
-                <a href="C:\Users\Cintia\OneDrive\Documentos\SP Tech\PI\Projeto-Individual\quiz_personalidade\index.html">
-                    <li>Quiz</li>
+                <a href="quiz_personalidade.html">
+                    Quiz | <a href="quiz_personalidade.html"> Questionário 
+                  </a>
                 </a>
                 <a href="cadastro.html">
                     <li>Cadastro/Login</li>
@@ -125,7 +126,6 @@
                 </div>
             </div>
         </div>
-
         <!-- <div class="vl"></div> -->
         <hr width="1" size="150" >
         <!-- </div>
@@ -202,11 +202,13 @@
 
 
 window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 20) { // You can adjust the scroll value as needed
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.classList.remove('transparent');
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
+        header.classList.add('transparent');
     }
 });
 

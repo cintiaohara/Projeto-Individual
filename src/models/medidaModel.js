@@ -23,10 +23,10 @@ function atualizarPerfil(perfil, id) {
 function pegarQuantidadePerfil() {
 
     var instrucaoSql = `
-    select sum(case when perfil = 'Calma e Equilibrada' then 1 else 0 end) as calma,
-        sum(case when perfil = 'Ativa e Dinâmica' then 1 else 0 end) as ativa,
-        sum(case when perfil = 'Casual e Acolhedora' then 1 else 0 end) as casual,
-        sum(case when perfil = 'Criativa e Excêntrica' then 1 else 0 end) as criativa
+    select sum(case when perfil = 'Calmo e Equilibrado' then 1 else 0 end) as calma,
+        sum(case when perfil = 'Ativo e Dinâmico' then 1 else 0 end) as ativa,
+        sum(case when perfil = 'Casual e Acolhedor' then 1 else 0 end) as casual,
+        sum(case when perfil = 'Criativo e Excêntrico' then 1 else 0 end) as criativa
         from quiz;
     `;
 
