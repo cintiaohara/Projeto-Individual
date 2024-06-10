@@ -40,7 +40,7 @@ html {
 
 
 .container_navi {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.479);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,20 +107,20 @@ header.transparent {
   align-content:end ;
   justify-content: space-between;
   align-items:flex-end;
+  align-self: flex-end;
   font-family: "Quicksand", sans-serif;
   color: white;
   font-size: 40px; 
   white-space: nowrap;
-  align-self: flex-end;
   width: 100vw;
   height: 100vh;
   animation: type 4s steps(60, end); 
   overflow: hidden;
-  text-align: right;
+  text-align: left;
 }
 
 .frase.end {
-  grid-column: 1 / -1;
+  grid-column: span 2 / 7;
 }
 
 @keyframes type{ 
@@ -235,6 +235,7 @@ header.transparent {
     justify-content:space-between;
     width: 50%;
     font-family: "Quicksand", sans-serif;
+    
 }
 
 .navibar a {
@@ -342,17 +343,44 @@ tela sobre projeto
 
 .about {
 
-  width: 70%;
-  height: 130px;
-  padding: 130px 120px;
+  width: 80%;
+  height: 40%;
+  padding: 130px 100px;
+  padding-left: 60px;
+  padding-right: 60px;
   display: flex;  
   flex-direction: column;
-  justify-content: right;
+  justify-content: center;
   margin: 50px;
-  color: black;
+  color: rgb(255, 255, 255);
   background-color: rgba(73, 73, 73, 0.329);
   font-family: "Quicksand", sans-serif;
  
+}
+
+.about a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 600;
+
+}
+
+.about .ods {
+
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  row-gap: 10px;
+}
+
+
+.about .titulo {
+
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 30px;
 }
 
 .about p {
@@ -360,7 +388,7 @@ tela sobre projeto
   width: 100%;
   height: 100%;
   color: white;
-  display: flex;
+  
   align-items: center;
   justify-content: center;
   font-family: "Quicksand", sans-serif;
@@ -414,22 +442,25 @@ tela sobre mim
 }
 
 .about2 {
-
-
-
-width: 30%;
-height: 130px;
-padding: 130px 120px;
-display: flex;  
-flex-direction: column;
-justify-content: right;
-margin: 50px;
-color: white;
-background-color: rgba(0, 0, 0, 0.529);
-font-family: "Quicksand", sans-serif;
+width: 40%;
+height: 100px;
+padding: 130px 100px;
+  padding-left: 60px;
+  padding-right: 60px;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(22, 22, 22, 0.877);
+  font-family: "Quicksand", sans-serif;
 }
+.about2 .p{
 
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* 
 
@@ -439,15 +470,6 @@ footer
 
 */
 
-/* .footer_comidas {
-
-  display: flex;
-  flex-direction: row;
-  align-content:end ;
-  justify-content: space-between;
-  align-items: flex-end;
-  
-} */
 
 .footer {
   display: flex;
@@ -725,7 +747,6 @@ tela de cadastro
         padding-bottom: 7px;
         letter-spacing: 4px;
         font-size: 14px;
-        padding-right: 15px;
         text-transform: uppercase;
       }
       
@@ -753,8 +774,8 @@ tela de cadastro
         position: absolute;
         width: 100%;
         transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
+        height: 1px;
+        bottom: 5px;
         left: 0;
         background-color: #fff;
         transform-origin: bottom right;
@@ -880,6 +901,8 @@ Tela comidas
   justify-content: center;
  
 }
+
+
 
 .cards-container {
   
@@ -1066,6 +1089,22 @@ label {
 #fim {
   display: none;
   text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+}
+
+#fim a{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
 }
 
 #botão_proxima {
@@ -1553,7 +1592,7 @@ canvas {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: space-between;
   margin: 15px;
   width:30%;

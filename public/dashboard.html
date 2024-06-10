@@ -21,6 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="../public/assets/favicon-32x32.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/sessao.js"></script>
 
 </head>
 
@@ -469,7 +470,10 @@ var idUsuario = sessionStorage.ID_USUARIO;
         porcentagem_casual = (dados_casual / total * 100).toFixed();
         porcentagem_ativa = (dados_ativa / total * 100).toFixed();
         porcentagem_criativa = (dados_criativa / total * 100).toFixed();
-        if (resposta == "Calmo e Equilibrado") {
+        if(resposta == ""){
+            document.getElementById("porcentagem_perfil").innerHTML = "Indefinido. Faça o Quiz para descobrir."
+        }
+        else if (resposta == "Calmo e Equilibrado") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_calma + "%"
         } else if (resposta == "Ativo e Dinâmico") {
             document.getElementById("porcentagem_perfil").innerHTML = porcentagem_ativa + "%"

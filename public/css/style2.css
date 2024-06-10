@@ -44,7 +44,7 @@ body,html {
 
 
 .container_navi {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.479);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +73,7 @@ body,html {
 
   display: flex;
   justify-content:space-between;
-  width: 40%;
+  width: 50%;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -335,6 +335,7 @@ i {
   margin-top: 50px;
   justify-content: center;
   align-items: center;
+  
 }
 
 .cta {
@@ -345,9 +346,10 @@ i {
 
 .cta span {
   padding-bottom: 7px;
+  padding-top: 10px;
   letter-spacing: 4px;
   font-size: 14px;
-  padding-right: 15px;
+  padding-right: 0px;
   text-transform: uppercase;
 }
 
@@ -375,7 +377,7 @@ i {
 .hover-underline-animation:after {
   content: "";
   position: absolute;
-  width: 85%;
+  width: 100%;
   transform: scaleX(0);
   height: 2px;
   bottom: 0;

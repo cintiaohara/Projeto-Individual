@@ -8,7 +8,6 @@ var idUsuario = sessionStorage.ID_USUARIO;
 var jaFez = false;
 
 const startTest = () => {
-  //generate 5 random questions indexes
   selectedIndexes = [];
   let count = 0;
   while (count < 10) {
@@ -20,40 +19,31 @@ const startTest = () => {
     count++;
   }
 
-  //show
   questionIndex = 0;
   let questionObj = questions[selectedIndexes[questionIndex]];
-  //console.log(questionObj);
 
-  //show new question
+
   displayQuestion(questionObj);
 
-  //set the question number
   document.getElementById("counter").innerHTML = questionIndex + 1;
 
-  //disable previous button and next button
   document.getElementById("next").style.pointerEvents = "none";
   document.getElementById("next").style.color = "gray";
 
   document.getElementById("previous").style.pointerEvents = "none";
   document.getElementById("previous").style.color = "gray";
 
-  //hide the intro page an show the test
   document.getElementsByClassName("welcome")[0].style.display = "none";
   document.getElementsByClassName("container")[0].style.display = "flex";
 
-  //don't show test result
   document.getElementById("test-result").style.display = "none";
 
-  //hide restart button
   document.getElementById("restart").style.display = "none";
 
-  //hide the right side
   document.getElementsByClassName("your-answers")[0].style.display = "none";
 };
 
 const resetPreviousStyles = () => {
-  //reset styles added previously
   document.getElementById("div-ans-a").style.border = "none";
   document.getElementById("div-ans-b").style.border = "none";
   document.getElementById("div-ans-c").style.border = "none";
@@ -79,7 +69,6 @@ const displayQuestion = (questionObj) => {
   document.getElementById("ans-c").innerHTML = questionObj.answers[2].text;
   document.getElementById("ans-d").innerHTML = questionObj.answers[3].text;
 
-  //enable previous button if there's a previous question
   if (questionIndex > 0) {
     document.getElementById("previous").style.pointerEvents = "auto";
     document.getElementById("previous").style.color = "black";
@@ -88,7 +77,6 @@ const displayQuestion = (questionObj) => {
     document.getElementById("previous").style.color = "gray";
   }
 
-  //enable the next button only if there's an existing answer
   if (selectedAnswers[questionIndex] !== null) {
     document.getElementById("next").style.pointerEvents = "auto";
     document.getElementById("next").style.color = "black";
@@ -97,7 +85,6 @@ const displayQuestion = (questionObj) => {
     document.getElementById("next").style.color = "gray";
   }
 
-  //next 'next question to finish' if question is the last
 
   if (questionIndex === LAST_QUESTION - 1) {
     document.getElementById("next").innerHTML = "Terminar";
@@ -110,17 +97,13 @@ const nextQuestion = () => {
   if (questionIndex < selectedIndexes.length - 1) {
     questionIndex++;
     let questionObj = questions[selectedIndexes[questionIndex]];
-    //console.log(questionObj);
 
-    //reset styles added previously
+
     resetPreviousStyles();
 
-    //show new question
     displayQuestion(questionObj);
 
     if (selectedAnswers[questionIndex] !== null) {
-      //previous answer exist
-      //set the selected answer since user can change the answer
       let answer = selectedAnswers[questionIndex];
       displaySelectedAnswer(answer);
     }
@@ -139,39 +122,30 @@ const previousQuestion = () => {
     questionIndex--;
 
     let questionObj = questions[selectedIndexes[questionIndex]];
-    //console.log(questionObj);
 
     resetPreviousStyles();
 
-    //show new question
     displayQuestion(questionObj);
 
-    //set the question number
     document.getElementById("counter").innerHTML = questionIndex + 1;
 
-    //set the selected answer since user can change the answer
     let answer = selectedAnswers[questionIndex];
     displaySelectedAnswer(answer);
   }
 };
 
 const selectedAnswer = (ans) => {
-  //reset styles added previously
   resetPreviousStyles();
 
-  //setSelected answers
   displaySelectedAnswer(ans);
 
-  //when answer is selected, enable the next button
   document.getElementById("next").style.pointerEvents = "auto";
   document.getElementById("next").style.color = "black";
 
-  //user answer so we can display it at the end
   selectedAnswers[questionIndex] = ans;
-  //console.log(selectedAnswers);
+
 };
 
-//function to show the chosen question and answer. For summary at the end of the test
 const showElement = (questionObj, chosenAnswer, index) => {
   let element = "";
 
@@ -272,7 +246,6 @@ const showAllQuestionAndAnswer = () => {
   let C_count = 0;
   let D_count = 0;
 
-  //get the questions and selected answer in order to display the summary
   for (let i = 0; i < selectedIndexes.length; i++) {
     let questionObj = questions[selectedIndexes[i]];
     let answer = selectedAnswers[i];
@@ -291,12 +264,9 @@ const showAllQuestionAndAnswer = () => {
     }
   }
 
-  //console.log(introvertCount);
-  //console.log(extrovertCount);
 
   showPersonalities(A_count, B_count, C_count, D_count);
 
-  //hide the previous and finish button and show restart button
   document.getElementById("next").style.display = "none";
   document.getElementById("previous").style.display = "none";
 
@@ -307,25 +277,25 @@ const showAllQuestionAndAnswer = () => {
 const showPersonalities = (A, B, C, D) => {
   console.log(A, B, C, D)
   if (A > B && A > C && A > D) {
-    //show image
-
+   
+e
     document.getElementById("image").src = "assets/img_quiz/quiz1.png";
 
 
     document.getElementById("comida-combina").innerText = "Você combina com Kaarage, Missoshiro, Omuraisu, Tempurá e Udon";
     document.getElementById("perfil").innerText = "Calmo e Equilibrado";
-    //append personality traits
+
 
     let element = `<li>   <br> Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença assim como é o Tempurá e o Udon, que misturam texturas e formas de comidas diferentes.`;
     document.getElementById("personalities").innerHTML += element;
     perfilVar = "Calmo e Equilibrado";
   } else if (B > A && B > C && B > D) {
-    //show image
+
     document.getElementById("image").src = "assets/img_quiz/quiz2.png";
     document.getElementById("comida-combina").innerText = "Você combina com Gyoza, Donburi, Natto, Onigiri e Yakitori";
     document.getElementById("perfil").innerText = "Ativo e Dinâmico";
 
-    //append personality traits
+ 
     let element = `
     <br>Você é uma pessoa ativa e sempre em movimento. As 4 comidas são perfeitas para pessoas que estão sempre "on the go". São comidas rápidas para pessoas ocupadas que estão sempre com algo para fazer. A monotonia não faz parte do seu vocabulário; você prospera em ambientes dinâmicos e desafiadores. Seja praticando esportes, participando de eventos ou simplesmente explorando novos lugares, você está sempre em busca de algo para fazer. Sua energia é contagiante, inspirando aqueles ao seu redor a se manterem ativos e envolvidos.`;
     document.getElementById("personalities").innerHTML += element;
@@ -350,13 +320,10 @@ const showPersonalities = (A, B, C, D) => {
     perfilVar = "Criativo e Excêntrico";
   }
 
-  //show test result
   document.getElementById("test-result").style.display = "flex";
 
-  //show restart button
   document.getElementById("restart").style.display = "block";
 
-  //show the right side
   document.getElementsByClassName("your-answers")[0].style.display = "block";
 
   if (perfilVar != "") {

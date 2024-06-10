@@ -1,1 +1,0 @@
-var login_feito = sessionStorage.LOGIN_FEITO;
