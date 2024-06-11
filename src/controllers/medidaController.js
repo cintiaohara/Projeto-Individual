@@ -32,7 +32,7 @@ function atualizarPerfil(req, res) {
     } else if (perfil == undefined) {
         res.status(400).send("Seu comida está undefined!");
     } else {
-        medidaModel.criarPerfil(perfil, id).then(function (resultado) {
+        medidaModel.atualizarPerfil(perfil, id).then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
             } else {

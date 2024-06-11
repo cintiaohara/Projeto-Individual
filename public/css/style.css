@@ -66,14 +66,7 @@ html {
     z-index: 1000;
 }
 
-.header.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); /* Example color */
-}
 
-header.transparent {
-  background-color: rgba(0, 0, 0, 0); /* Transparent */
-  color: white;
-}
 
 .banner {
     position: relative;
@@ -147,7 +140,7 @@ header.transparent {
 
 .img_banner.img1 {
 
-    background-image: url(../assets/imagens/3607.jpg);
+    background-image: url(../assets/imagens/3068.jpg);
     opacity: 100%;
     animation-name: opc;
     animation-duration: 2.5s;
@@ -162,7 +155,7 @@ header.transparent {
 }
 .img_banner.img2 {
 
-    background-image: url(../assets/imagens/3068.jpg);
+    background-image: url(../assets/imagens/DSC06577.jpg);
     opacity: 100%;
     animation-name: opc2;
     animation-duration: 2.5s;
@@ -190,7 +183,7 @@ header.transparent {
 }
 .img_banner.img4 {
 
-    background-image: url(../assets/imagens/3607.jpg);
+    background-image: url(../assets/imagens/3605.jpg);
     opacity: 100%;
     animation-name: opc4;
     animation-duration: 2.5s;
@@ -369,8 +362,20 @@ tela sobre projeto
 
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  row-gap: 10px;
+  justify-content: space-evenly;
+  align-items: left;
+  
+}
+
+.about .ods p {
+
+  margin: 20px;
+}
+
+.about .ods img {
+  margin: 5px;
+  width: 150px;
+  height: 150px;
 }
 
 

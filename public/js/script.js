@@ -278,7 +278,7 @@ const showPersonalities = (A, B, C, D) => {
   console.log(A, B, C, D)
   if (A > B && A > C && A > D) {
    
-e
+
     document.getElementById("image").src = "assets/img_quiz/quiz1.png";
 
 
@@ -286,7 +286,7 @@ e
     document.getElementById("perfil").innerText = "Calmo e Equilibrado";
 
 
-    let element = `<li>   <br> Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença assim como é o Tempurá e o Udon, que misturam texturas e formas de comidas diferentes.`;
+    let element = ` <br> Você é uma pessoa naturalmente calma e equilibrada, e assim como o efeito do Missoshiro, você traz paz aos outros. Sua serenidade ajuda a evitar conflitos, mantendo uma atitude positiva. Sua paciência e persistência são notáveis, esperando pelo momento certo e dedicando-se aos objetivos com determinação. Seu senso estético refinado valoriza a beleza em todas as formas, apreciando e criando detalhes que fazem diferença assim como é o Tempurá e o Udon, que misturam texturas e formas de comidas diferentes.`;
     document.getElementById("personalities").innerHTML += element;
     perfilVar = "Calmo e Equilibrado";
   } else if (B > A && B > C && B > D) {
@@ -330,7 +330,7 @@ e
     if (jaFez) {
 
       fetch(`/medidas/atualizarPerfil`, {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },

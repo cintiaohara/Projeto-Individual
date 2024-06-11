@@ -5,8 +5,12 @@ function criarPerfil(perfil, id) {
     var instrucaoSql = `
     insert into quiz (perfil, fkQuizUsuario) values ('${perfil}', ${id});
                     `;
+    var instrucao2Sql = `
+    UPDATE usuario set fezQuiz = true where id = ${id};
+`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    database.executar(instrucao2Sql);
     return database.executar(instrucaoSql);
 }
 
@@ -16,7 +20,10 @@ function atualizarPerfil(perfil, id) {
     update quiz set perfil = '${perfil}' where fkQuizUsuario = ${id};
                     `;
 
+    
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
     return database.executar(instrucaoSql);
 }
 
